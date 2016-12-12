@@ -14,16 +14,21 @@
     bottom : 0;
     right: 0;
 }
-.cout-pierre {
-    position : absolute;
+.ressource-pierre {
+    position : relative;
     background : url('../images/pierre.png') no-repeat;
-    left : 3px;
+    left : 0;
     width : 20px;
     height: 20px;
 }
+
+.cout {
+	display: inline;
+}
+
 .dependance {
     font-size : 10px;
-    position : absolute;
+    position : relative;
     left : 10%;
     /*noinspection CssInvalidPropertyValue*/
     writing-mode: sideways-lr;
