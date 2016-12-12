@@ -22,14 +22,19 @@
     height: 20px;
 }
 
+.couts-area {
+	display: flex;
+}
+
 .cout {
 	display: inline;
+	width: 20px;
+	margin-left: 1%;
 }
 
 .dependance {
     font-size : 10px;
     position : relative;
-    left : 10%;
     /*noinspection CssInvalidPropertyValue*/
     writing-mode: sideways-lr;
     text-orientation: sideways;
