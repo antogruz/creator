@@ -1,12 +1,28 @@
-.carte {
-    margin : 100px;
-    border : 8px solid black;
-    border-radius : 10px;
+#galerie {
+    display: flex;
+}
+
+.marge {
+    margin: 50px;
+}
+
+.carte-size {
     height : 350px;
-    width : 227px;
+    width: 227px;
+}
+
+.carte {
+    border : 10% solid black;
+    border-radius : 1%;
     background-image : url('../images/fond.jpg');
     position : relative;
 }
+
+.full-screen {
+    height : 100%;
+    width : 100%;
+}
+
 .image img{
     position : absolute;
     height : 80%;
