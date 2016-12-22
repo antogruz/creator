@@ -1,0 +1,10 @@
+Pour avoir la meilleure expérience possible il faut installer la police Possum Saltare
+
+on peut la télécharger ici : http://www.1001freefonts.com/search.php?q=possum+saltare&search=search
+
+il faut ensuite la copier dans "/usr/share/fonts/"
+
+et lancer : $ sudo fc-cache -f -v
+
+petit tuto sur les fonts : https://developer.mozilla.org/fr/docs/Web/CSS/@font-face
+

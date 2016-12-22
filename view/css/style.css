@@ -1,10 +1,15 @@
 @font-face {
-    font-family: "Cafeteria Bold";
-    src: url('cafeteria-bold.tff');
+    font-family: "custom";
+    src: local("Possum Saltare NF");
+}
+
+@font-face {
+    font-family: "chiffres";
+    src: local("Cafeteria Black");
 }
 
 body {
-    font-family: "cafeteria";
+    font-family: "custom";
 }
 
 .galerie {
@@ -46,7 +51,7 @@ body {
 }
 
 .dependance {
-    font-size : 100%;
+    font-size : 0.6em;
     position : relative;
     writing-mode: sideways-lr;
     text-orientation: sideways;
@@ -79,6 +84,7 @@ body {
 
 .victoire {
     color : white;
+    font-family: "chiffres";
     font-size: 1.8em;
     font-weight: bold;
 }
@@ -92,7 +98,7 @@ body {
     text-orientation: sideways;
     bottom : 0;
     left : 4%;
-    font-size : 1.3em;
+    font-size : 1.05em;
 }
 .nombreJoueurs {
     position : absolute;
