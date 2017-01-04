@@ -1,11 +1,11 @@
 @font-face {
     font-family: "custom";
-    src: local("Possum Saltare NF");
+    src: url('../font/PossumSaltareNF.ttf')
 }
 
 @font-face {
     font-family: "chiffres";
-    src: local("Cafeteria Black");
+    src: url("../font/cafeteria-bold.ttf");
 }
 
 body {
