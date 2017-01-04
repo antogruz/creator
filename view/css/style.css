@@ -51,11 +51,14 @@ body {
 }
 
 .dependance {
-    font-size : 0.6em;
+    font-size : 0.5em;
     position : relative;
     writing-mode: sideways-lr;
     text-orientation: sideways;
-    background-image : url('../images/fond-dependance.png')
+    background : url('../images/fond-dependance.png');
+    background-size: 15px 15px;
+    padding : 2px 2px 5px 1px;
+    margin-bottom : 5px;
 }
 
 .effets {
