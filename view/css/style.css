@@ -94,14 +94,16 @@ body {
 
 .name {
     position : absolute;
-    background-size: 50px 41px;
-    background: url('../images/fond-name.png') no-repeat center;
+    background: url('../images/fond-name.png') no-repeat center/150% 100%;
     /*noinspection CssInvalidPropertyValue*/
     writing-mode: sideways-lr;
     text-orientation: sideways;
     bottom : 0;
     left : 4%;
-    font-size : 1.05em;
+    font-size : 0.95em;
+    margin-top : -20px;
+    padding-top : 20px;
+    padding-bottom : 2px;
 }
 .nombreJoueurs {
     font-family: "chiffres";
