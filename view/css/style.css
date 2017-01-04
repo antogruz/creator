@@ -101,10 +101,12 @@ body {
     font-size : 1.05em;
 }
 .nombreJoueurs {
+    font-family: "chiffres";
     position : absolute;
-    bottom : 5px;
+    bottom : 3px;
+    font-size : 0.95em;
     left : 50%;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    text-shadow: -1px 0 #d1d1d1, 0 1px #d1d1d1, 1px 0 #d1d1d1, 0 -1px #d1d1d1;
 }
 
 .marge {
