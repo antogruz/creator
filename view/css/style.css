@@ -45,8 +45,9 @@ body {
 
 .ressource {
     position : relative;
-    width : 84%;
-    height: 16%;
+    width : 88%;
+    height: 14%;
+    margin-top: 14%;
 }
 
 .dependance {
