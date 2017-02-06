@@ -43,6 +43,10 @@ body {
     margin-left: 3%;
 }
 
+.padding {
+    height: 0.8%;
+}
+
 .ressources-3 {
     background-image : url('../images/fond-dependance.png');
     background-repeat : no-repeat;
@@ -52,9 +56,9 @@ body {
 
 .ressource {
     position : relative;
-    width : 88%;
-    height: 14%;
-    margin-top: 14%;
+    width : 95%;
+    height: 14.5%;
+    margin-top: 7.5%;
     margin-left: auto;
     margin-right: auto;
 }
