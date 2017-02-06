@@ -43,11 +43,20 @@ body {
     margin-left: 3%;
 }
 
+.ressources-3 {
+    background-image : url('../images/fond-dependance.png');
+    background-repeat : no-repeat;
+    background-position : center top;
+    background-size: 55% 51%;
+}
+
 .ressource {
     position : relative;
     width : 88%;
     height: 14%;
     margin-top: 14%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .dependance {
