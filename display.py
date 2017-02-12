@@ -1,30 +1,34 @@
 import argparse
-import os
 import re
 
+
 def main():
-    html = generateHtmlToDisplay()
-    writeInViewFile(html)
+    html = generate_html_to_display()
+    write_in_view_file(html)
 
-def generateHtmlToDisplay():
-    galerie = readContent("view/galerie.html")
+
+def generate_html_to_display():
+    gallery = read_content("view/gallery.html")
     cards = ""
-    for file in getHtmlFilesToDisplay():
-        cards += readContent(file)
+    for file in get_html_files_to_display():
+        cards += read_content(file)
 
-    return re.sub("python-cards", cards, galerie)
+    return re.sub("python-cards", cards, gallery)
 
-def getHtmlFilesToDisplay():
+
+def get_html_files_to_display():
     parser = argparse.ArgumentParser()
     parser.add_argument("cards", nargs="+", help="The cards to display")
     args = parser.parse_args()
     return args.cards
 
-def readContent(file):
+
+def read_content(file):
     with open(file, "r") as fh:
         return fh.read()
 
-def writeInViewFile(html):
+
+def write_in_view_file(html):
     file = "view/generated_view.html"
     with open(file, "w") as fh:
         fh.write(html)
