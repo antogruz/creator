@@ -4,9 +4,7 @@ import re
 
 def main():
     html = generateHtmlToDisplay()
-    file = writeInTmpFile(html)
-    runViewer(file)
-    os.remove(file)
+    writeInViewFile(html)
 
 def generateHtmlToDisplay():
     galerie = readContent("view/galerie.html")
@@ -26,15 +24,10 @@ def readContent(file):
     with open(file, "r") as fh:
         return fh.read()
 
-def writeInTmpFile(html):
-    file = "view/tmp.html"
+def writeInViewFile(html):
+    file = "view/generated_view.html"
     with open(file, "w") as fh:
         fh.write(html)
     return file
-
-def runViewer(file):
-    os.system("firefox {}".format(file))
-
-
 
 main()
