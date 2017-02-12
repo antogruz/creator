@@ -47,11 +47,18 @@ body {
     height: 0.8%;
 }
 
-.ressources-3 {
+.background-banner {
     background-image : url('../images/fond-dependance.png');
     background-repeat : no-repeat;
     background-position : center top;
+}
+
+.ressources-3 {
     background-size: 55% 51%;
+}
+
+.ressources-4 {
+    background-size: 55% 67%;
 }
 
 .ressource {
