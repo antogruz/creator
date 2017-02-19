@@ -26,10 +26,19 @@ body {
     width : 92%;
     border : solid black 10px;
     border-radius : 1%;
-    background-image : url('../images/fond.jpg');
     position : relative;
     display: flex;
 }
+
+.bleue {
+    background-image : url('../images/fond.jpg');
+}
+
+.jaune {
+    background-image : url('../images/yellow_background.jpg');
+}
+
+
 
 .couts-area {
     display: flex;
