@@ -93,10 +93,19 @@ body {
     position: relative;
     width: 47%;
     height: 90%;
+}
+
+.position-center {
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+
+.coin-picture {
+    width: 81%;
+    height: 100%;
 }
 
 .center {
@@ -109,11 +118,20 @@ body {
 
 .victoire {
     color : white;
+    text-shadow: -1px 0 #000, 0 1px #000, 2px 0 #000, 0 -1px #000;
+}
+
+.coins {
+    color : black;
+    text-shadow: -1px 0 white, 0 1px white, 2px 0 white, 0 -1px white;
+}
+
+.chiffres {
     font-family: "chiffres";
     font-size: 2.2em;
     font-weight: bold;
-    text-shadow: -1px 0 #000, 0 1px #000, 2px 0 #000, 0 -1px #000;
 }
+
 
 .name {
     position : absolute;
