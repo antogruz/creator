@@ -1,3 +1,6 @@
 Ce projet a pour but d'aider les game designers à créer des éléments de jeu concrets, principalement des cartes.
 
 La première partie se propose de créer un générateur de cartes de 7Wonders.
+
+Voilà un exemple d'une commande à lancer pour générer en permanence le code html qui affiche la galerie :
+while true ; do python3 display.py view/taverne.html references/taverne.html view/aqueduc.html ; done &
