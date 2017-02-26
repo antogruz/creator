@@ -1,3 +1,5 @@
+from css_class import CssClass
+
 height = 350.0
 width = 227.0
 cssfile = "view/css/grid.css"
@@ -15,31 +17,37 @@ def generate_all_lines(count):
     return generate_all(count, generate_line)
 
 def generate_line(line_number, lines_count):
-    return create_css_class("line-{}".format(line_number), "top", "{}%".format(get_percentage(line_number, lines_count)))
+    css_class = CssClass("line-{}".format(line_number))
+    css_class.add_property("top", "{}%".format(get_percentage(line_number, lines_count)))
+    css_class.add_property("position", "relative")
+    css_class.add_property("display", "flex")
+    return css_class.get_css()
+
 
 def generate_all_columns(count):
     return generate_all(count, generate_column)
 
 def generate_column(column_index, columns_count):
-    return create_css_class("column-{}".format(column_index),
-            "left",
-            "{}%".format(get_percentage(column_index, columns_count)))
+    css_class = CssClass("column-{}".format(column_index))
+    css_class.add_property("left", "{}%".format(get_percentage(column_index, columns_count)))
+    css_class.add_property("position", "relative")
+    return css_class.get_css()
 
 def generate_all_heights(count):
     return generate_all(count, generate_height)
 
 def generate_height(index, lines_count):
-    return create_css_class("h-{}".format(index + 1),
-            "height",
-            "{}%".format(get_percentage(index + 1, lines_count)))
+    css_class = CssClass("h-{}".format(index + 1))
+    css_class.add_property("height", "{}%".format(get_percentage(index + 1, lines_count)))
+    return css_class.get_css()
 
 def generate_all_widths(count):
     return generate_all(count, generate_width)
 
 def generate_width(index, columns_count):
-    return create_css_class("w-{}".format(index + 1),
-            "width",
-            "{}%".format(get_percentage(index + 1, columns_count)))
+    css_class = CssClass("w-{}".format(index + 1))
+    css_class.add_property("width", "{}%".format(get_percentage(index + 1, columns_count)))
+    return css_class.get_css()
 
 def generate_all(count, generator):
     accumulated = ""
@@ -49,11 +57,6 @@ def generate_all(count, generator):
 
 def get_percentage(dividende, divisor):
     return dividende * 100.0 / divisor
-
-def create_css_class(class_name, property, value):
-    return """.{} {{
-    {}: {};
-}}""".format(class_name, property, value)
 
 def create_file(filename, content):
     with open(filename, "w") as fh:
