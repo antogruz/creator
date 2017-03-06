@@ -20,7 +20,7 @@ def generate_line(line_number, lines_count):
     css_class = CssClass("line-{}".format(line_number))
     css_class.add_property("top", "{}%".format(get_percentage(line_number, lines_count)))
     css_class.add_property("position", "relative")
-    css_class.add_property("display", "flex")
+    css_class.add_property("display", "inline-block")
     return css_class.get_css()
 
 
