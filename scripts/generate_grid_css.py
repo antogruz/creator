@@ -1,14 +1,20 @@
 from css_class import CssClass
+from generate_grid_html import generate_grid_html
 
 height = 350.0
 width = 227.0
 cssfile = "view/css/grid.css"
+htmlfile = "view/grid.html"
 
 def main():
     columns = 20
     lines = int(height * columns / width) + 1
     grid_css = generate_grid_css(lines, columns)
     create_file(cssfile, grid_css)
+    grid_html = '<div class="marge carte-size">'
+    grid_html += generate_grid_html(lines, columns)
+    grid_html += '</div>'
+    create_file(htmlfile, grid_html)
 
 def generate_grid_css(lines, columns):
     return generate_all_lines(lines)
