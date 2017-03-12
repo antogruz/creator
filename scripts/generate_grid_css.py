@@ -5,13 +5,16 @@ width = 227.0
 cssfile = "view/css/grid.css"
 
 def main():
-    grid_css = generate_grid_css(height, width)
-    create_file(cssfile, grid_css)
-
-def generate_grid_css(height, width):
     columns = 20
     lines = int(height * columns / width) + 1
-    return generate_all_lines(lines) + generate_all_columns(columns) + generate_all_heights(lines) + generate_all_widths(columns)
+    grid_css = generate_grid_css(lines, columns)
+    create_file(cssfile, grid_css)
+
+def generate_grid_css(lines, columns):
+    return generate_all_lines(lines)
+    + generate_all_columns(columns)
+    + generate_all_heights(lines)
+    + generate_all_widths(columns)
 
 def generate_all_lines(count):
     return generate_all(count, generate_line)
@@ -22,7 +25,6 @@ def generate_line(line_number, lines_count):
     css_class.add_property("position", "relative")
     css_class.add_property("display", "inline-block")
     return css_class.get_css()
-
 
 def generate_all_columns(count):
     return generate_all(count, generate_column)
