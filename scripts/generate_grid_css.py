@@ -3,10 +3,10 @@ import argparse
 from css_class import CssClass
 
 def generate_grid_css(lines, columns):
-    return generate_all_lines(lines)
-    + generate_all_columns(columns)
-    + generate_all_heights(lines)
-    + generate_all_widths(columns)
+    return generate_all_lines(lines) \
+    + generate_all_columns(columns) \
+    + generate_all_heights(lines) \
+    + generate_all_widths(columns) \
 
 def generate_all_lines(count):
     return generate_all(count, generate_line)
