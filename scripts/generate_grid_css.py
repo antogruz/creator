@@ -1,3 +1,5 @@
+import argparse
+
 from css_class import CssClass
 from generate_grid_html import generate_grid_html
 
@@ -7,7 +9,7 @@ cssfile = "view/css/grid.css"
 htmlfile = "view/grid.html"
 
 def main():
-    columns = 20
+    columns = get_columns_count()
     lines = int(height * columns / width) + 1
     grid_css = generate_grid_css(lines, columns)
     create_file(cssfile, grid_css)
@@ -15,6 +17,11 @@ def main():
     grid_html += generate_grid_html(lines, columns)
     grid_html += '</div>'
     create_file(htmlfile, grid_html)
+
+def get_columns_count():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("columns", type=int)
+    return parser.parse_args().columns
 
 def generate_grid_css(lines, columns):
     return generate_all_lines(lines)
