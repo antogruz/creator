@@ -60,6 +60,12 @@ body {
     background-position : center top;
 }
 
+.background-full {
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+}
+
 .ressources-3 {
     background-size: 55% 51%;
 }
@@ -78,14 +84,18 @@ body {
 }
 
 .dependance {
-    font-size : 0.5em;
     position : relative;
-    writing-mode: sideways-lr;
-    text-orientation: sideways;
     background : url('../images/fond-dependance.png');
     background-size: 15px 15px;
+}
+
+.text-dependance {
+    font-size : 0.5em;
+    writing-mode: sideways-lr;
+    text-orientation: sideways;
     padding : 2px 2px 5px 1px;
     margin-bottom : 5px;
+    text-align: center;
 }
 
 .effets {
