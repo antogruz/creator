@@ -150,26 +150,36 @@ body {
 }
 
 
-.name {
-    position : absolute;
+.background-name {
     background: url('../images/fond-name.png') no-repeat center/150% 100%;
-    /*noinspection CssInvalidPropertyValue*/
+}
+
+.text-name {
     writing-mode: sideways-lr;
     text-orientation: sideways;
+    font-size : 0.95em;
+}
+
+.name {
+    position : absolute;
+    /*noinspection CssInvalidPropertyValue*/
     bottom : 0;
     left : 4%;
-    font-size : 0.95em;
     margin-top : -20px;
     padding-top : 20px;
     padding-bottom : 2px;
 }
-.nombreJoueurs {
+
+.text-nombreJoueurs {
     font-family: "chiffres";
+    text-shadow: -1px 0 #d1d1d1, 0 1px #d1d1d1, 1px 0 #d1d1d1, 0 -1px #d1d1d1;
+    font-size : 0.95em;
+}
+
+.nombreJoueurs {
     position : absolute;
     bottom : 3px;
-    font-size : 0.95em;
     left : 50%;
-    text-shadow: -1px 0 #d1d1d1, 0 1px #d1d1d1, 1px 0 #d1d1d1, 0 -1px #d1d1d1;
 }
 
 .marge {
