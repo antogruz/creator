@@ -1,7 +1,16 @@
 def generate_card():
+    return format(wrap_in_card_container(get_card_content()))
+
+
+def wrap_in_card_container(content):
     return """
 <div class="marge carte-size">
-    <div class="carte bleue">
+    {}
+</div>""".format(content)
+
+
+def get_card_content():
+    return """<div class="carte bleue">
         <div style="position:absolute;top:0px;left:10px;width:13px;height:82px">
             <div class="background-banner background-full"> </div>
         </div>
@@ -34,5 +43,35 @@ def generate_card():
         <div style="position:absolute;bottom:3px;left:50%" class="text-nombreJoueurs">
             3+
         </div>
-    </div>
-</div>"""
+    </div>"""
+
+
+import re
+def format(html):
+    nice = ""
+    divs = re.split("(<.*>)", html)
+    divs = [d for d in divs if not "\n" in d ]
+    print(divs)
+    indentations = 0
+    for d in divs:
+        nice += indent(d, indentations) + "\n"
+        if is_open(d):
+            indentations += 1
+        if is_close(d):
+            indentations -= 1
+
+    return nice
+
+def is_open(div):
+    return "<div" in div
+
+def is_close(div):
+    return "</" in div
+
+def indent(text, levels):
+    indentation = ""
+    for i in range(levels):
+        indentation += "\t"
+    return indentation + text
+
+

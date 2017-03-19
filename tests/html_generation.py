@@ -40,7 +40,10 @@ class CardsGeneratorTester(Tester):
         </div>
     </div>
 </div>"""
-        assert expected == generate_card()
+        actual = generate_card()
+        if not expected == actual:
+            print(expected, "\n", actual)
+            assert False
 
 def main():
     t = CardsGeneratorTester()
