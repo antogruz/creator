@@ -1,1 +1,9 @@
-PYTHONPATH=$PYTHONPATH:scripts/ python3 tests/grid_html.py
+#!/usr/bin/env bash
+
+set -e
+
+for file in grid_html.py html_generation.py
+do
+	PYTHONPATH=$PYTHONPATH:scripts/ python3 tests/$file
+done
+
