@@ -49,16 +49,20 @@ def get_card_content():
 import re
 def format(html):
     nice = ""
-    divs = re.split("(<.*>)", html)
-    divs = [d for d in divs if not "\n" in d ]
-    print(divs)
+    pattern_open = "<\w*\s+[^>]*\s*>"
+    pattern_close = "</\w*>"
+    pattern = "({}|{})".format(pattern_open, pattern_close)
+    divs = re.split(pattern, html)
+    divs = [re.sub("\n", "", d) for d in divs]
+    divs = [ d for d in divs if re.search("[^\s]", d)]
+    divs = [re.sub("^\s*|\s*$", "", d) for d in divs]
     indentations = 0
     for d in divs:
+        if is_close(d):
+            indentations -= 1
         nice += indent(d, indentations) + "\n"
         if is_open(d):
             indentations += 1
-        if is_close(d):
-            indentations -= 1
 
     return nice
 

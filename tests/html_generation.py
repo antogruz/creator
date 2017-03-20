@@ -1,5 +1,5 @@
 from unittests import Tester
-from card_generator import generate_card
+from card_generator import generate_card, format
 
 class CardsGeneratorTester(Tester):
     def aqueduc_test(self):
@@ -40,8 +40,9 @@ class CardsGeneratorTester(Tester):
         </div>
     </div>
 </div>"""
+        expected = format(expected)
         actual = generate_card()
-        if not expected == actual:
+        if not format(expected) == actual:
             print(expected, "\n", actual)
             assert False
 
