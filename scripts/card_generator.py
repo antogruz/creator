@@ -1,80 +1,44 @@
 def generate_card():
     return format(wrap_in_card_container(get_card_content()))
 
-
 def wrap_in_card_container(content):
-    return """
-<div class="marge carte-size">
-    {}
-</div>""".format(content)
-
+    return wrap_in_div('<div class="marge carte-size">', content)
 
 def get_card_content():
-    return """
-<div class="carte bleue">
-    {}
-    {}
-    {}
-    {}
-    {}
-    {}
-</div>""".format(get_cost(), get_dependency(), get_effect(), get_name(), get_picture(), get_players())
+    return wrap_in_div('<div class="carte bleue">', get_cost() + get_dependency() + get_effect() + get_name() + get_picture() + get_players())
 
 def get_cost():
-    return """
-    <div style="position:absolute;top:0px;left:10px;width:13px;height:82px">
-        <div class="background-banner background-full"> </div>
-    </div>
-    <div style="position:absolute;top:3px;left:5px;width:24px;height:24px">
-        <img class="full-screen" src="images/pierre.png"/>
-    </div>
-    <div style="position:absolute;top:28px;left:5px;width:24px;height:24px">
-        <img class="full-screen" src="images/pierre.png"/>
-    </div>
-    <div style="position:absolute;top:53px;left:5px;width:24px;height:24px">
-        <img class="full-screen" src="images/pierre.png"/>
-    </div>
-"""
+    pierre = '<img class="full-screen" src="images/pierre.png"/>'
+    cost = ""
+    cost += wrap_in_div(position(0, 10, 13, 82), '<div class="background-banner background-full"> </div>')
+    size = 24
+    cost += wrap_in_div(position(3, 5, size, size), pierre)
+    cost += wrap_in_div(position(28, 5, size, size), pierre)
+    cost += wrap_in_div(position(53, 5, size, size), pierre)
+    return cost
+
+def position(top, left, width, height):
+    return '<div style="position:absolute;top:{}px;left:{}px;width:{}px;height:{}px">'.format(top, left, width, height)
 
 def get_dependency():
-    return """
-    <div style="position:absolute;top:0px;left:32px;width:12px;height:25px">
-        <div class="background-banner background-full text-dependance">
-        BAINS
-        </div>
-    </div>
-"""
+    return wrap_in_div(position(0, 32, 12, 25), wrap_in_div('<div class="background-banner background-full text-dependance">', "BAINS"))
 
 def get_effect():
-    return """
-    <div style="position:absolute;top:10px;left:90px;width:60px;height:55px">
-        <img class="full-screen" src="images/laurier3.png">
-        <div class="center victoire chiffres">5</div>
-    </div>
-"""
+    victory_points = '<img class="full-screen" src="images/laurier3.png">' + wrap_in_div('<div class="center victoire chiffres">', "5")
+    return wrap_in_div(position(10, 90, 60, 55), victory_points)
 
 def get_name():
-    return """
-    <div style="position:absolute;bottom:0;left:10px;width:20px;height:90px">
-        <div class="background-name background-full text-name">
-            AQUEDUC
-        </div>
-    </div>
-    """
+    name = wrap_in_div('<div class="background-name background-full text-name">', "AQUEDUC")
+    return wrap_in_div('<div style="position:absolute;bottom:0;left:10px;width:20px;height:90px">', name)
 
 def get_picture():
-    return """
-    <div style="position:absolute;bottom:0;right:0;height:77%;width:82%">
-        <img class="full-screen" src="images/aqueduc.png"/>
-    </div>
-    """
+    return wrap_in_div('<div style="position:absolute;bottom:0;right:0;height:77%;width:82%">', '<img class="full-screen" src="images/aqueduc.png"/>')
 
 def get_players():
-    return """
-    <div style="position:absolute;bottom:3px;left:50%" class="text-nombreJoueurs">
-        3+
-    </div>
-    """
+    return wrap_in_div('<div style="position:absolute;bottom:3px;left:50%" class="text-nombreJoueurs">', "3+")
+
+def wrap_in_div(div, content):
+    return div + content + "</div>"
 
 import re
 def format(html):
