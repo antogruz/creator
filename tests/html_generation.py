@@ -3,11 +3,11 @@ from card_generator import generate_card, format
 
 class CardsGeneratorTester(Tester):
     def aqueduc_test(self):
-        expected = """
-<div class="marge carte-size">
+        expected = """<div class="marge carte-size">
     <div class="carte bleue">
         <div style="position:absolute;top:0px;left:10px;width:13px;height:82px">
-            <div class="background-banner background-full"> </div>
+            <div class="background-banner background-full">
+            </div>
         </div>
         <div style="position:absolute;top:3px;left:5px;width:24px;height:24px">
             <img class="full-screen" src="images/pierre.png"/>
@@ -20,12 +20,14 @@ class CardsGeneratorTester(Tester):
         </div>
         <div style="position:absolute;top:0px;left:32px;width:12px;height:25px">
             <div class="background-banner background-full text-dependance">
-            BAINS
+                BAINS
             </div>
         </div>
         <div style="position:absolute;top:10px;left:90px;width:60px;height:55px">
             <img class="full-screen" src="images/laurier3.png">
-            <div class="center victoire chiffres">5</div>
+            <div class="center victoire chiffres">
+                5
+            </div>
         </div>
         <div style="position:absolute;bottom:0;left:10px;width:20px;height:90px">
             <div class="background-name background-full text-name">
@@ -39,11 +41,11 @@ class CardsGeneratorTester(Tester):
             3+
         </div>
     </div>
-</div>"""
-        expected = format(expected)
+</div>
+"""
         actual = generate_card()
-        if not format(expected) == actual:
-            print(expected, "\n", actual)
+        if not expected == actual:
+            print(actual)
             assert False
 
 def main():

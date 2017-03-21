@@ -45,7 +45,6 @@ def get_card_content():
         </div>
     </div>"""
 
-
 import re
 def format(html):
     nice = ""
@@ -75,7 +74,7 @@ def is_close(div):
 def indent(text, levels):
     indentation = ""
     for i in range(levels):
-        indentation += "\t"
+        indentation += "    "
     return indentation + text
 
 
