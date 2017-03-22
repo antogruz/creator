@@ -18,9 +18,6 @@ def get_cost():
     cost += wrap_in_div(position(53, left, size, size), pierre)
     return cost
 
-def position(top, left, width, height):
-    return '<div style="position:absolute;top:{}px;left:{}px;width:{}px;height:{}px">'.format(top, left, width, height)
-
 def get_dependency():
     return wrap_in_div(position(0, 32, 12, 25), wrap_in_div('<div class="background-banner background-full text-dependance">', "BAINS"))
 
@@ -40,6 +37,18 @@ def get_players():
 
 def wrap_in_div(div, content):
     return div + content + "</div>"
+
+def position(top, left, width, height):
+    return div([style(["position:absolute", dimension("top", top), dimension("left", left), dimension("width", width), dimension("height", height)])])
+
+def div(attributes):
+    return "<div " + " ".join(attributes) + ">"
+
+def style(elements):
+    return 'style="' + ";".join(elements) + '"'
+
+def dimension(label, value):
+    return "{}:{}px".format(label, value)
 
 import re
 def format(html):
