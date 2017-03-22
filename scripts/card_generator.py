@@ -11,10 +11,11 @@ def get_cost():
     pierre = '<img class="full-screen" src="images/pierre.png"/>'
     cost = ""
     cost += wrap_in_div(position(0, 10, 13, 82), '<div class="background-banner background-full"> </div>')
+    left = 5
     size = 24
-    cost += wrap_in_div(position(3, 5, size, size), pierre)
-    cost += wrap_in_div(position(28, 5, size, size), pierre)
-    cost += wrap_in_div(position(53, 5, size, size), pierre)
+    cost += wrap_in_div(position(3, left, size, size), pierre)
+    cost += wrap_in_div(position(28, left, size, size), pierre)
+    cost += wrap_in_div(position(53, left, size, size), pierre)
     return cost
 
 def position(top, left, width, height):
