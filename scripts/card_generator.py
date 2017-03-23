@@ -1,3 +1,6 @@
+from cost import generate_cost
+from html import *
+
 class Config():
     def __init__(self):
         self.color = "bleue"
@@ -16,21 +19,17 @@ def wrap_in_card_container(content):
     return wrap_in_div('<div class="marge carte-size">', content)
 
 def get_card_content(config):
-    return wrap_in_div('<div class="carte {}">'.format(config.color), get_cost(config.cost) + get_dependency(config.dependency) + get_effect(config.effect) + get_name(config.name) + get_picture(config.picture) + get_players(config.players))
+    content = generate_cost(config.cost)
+    content += get_dependency(config.dependency)
+    content += get_effect(config.effect)
+    content += get_name(config.name)
+    content += get_picture(config.picture)
+    content += get_players(config.players)
 
-def get_cost(cost):
-    if not cost or len(cost) == 0:
-        return ""
+    return wrap_in_div('<div class="carte {}">'.format(config.color), content)
 
-    html = wrap_in_div(position(0, 10, 13, 82), '<div class="background-banner background-full"> </div>')
-    left = 5
-    size = 24
-    top = 3
-    for resource_name in cost:
-        resource = '<img class="full-screen" src="images/{}.png"/>'.format(resource_name)
-        html += wrap_in_div(position(top, left, size, size), resource)
-        top += 25
-    return html
+def at_position(top, left, width, height, content):
+    return wrap_in_div(position(top, left, width, height), content)
 
 def get_dependency(name):
     if not name or len(name) == 0:
@@ -68,52 +67,4 @@ def get_picture(file_name):
 
 def get_players(n):
     return wrap_in_div(div([style(["position:absolute", dim("bottom", 3), dim("left", 50, "%")]), 'class="text-nombreJoueurs"']), "{}+".format(str(n)))
-
-def wrap_in_div(div, content):
-    return div + content + "</div>"
-
-def position(top, left, width, height):
-    return div([style(["position:absolute", dim("top", top), dim("left", left), dim("width", width), dim("height", height)])])
-
-def div(attributes):
-    return "<div " + " ".join(attributes) + ">"
-
-def style(elements):
-    return 'style="' + ";".join(elements) + '"'
-
-def dim(label, value, unit="px"):
-    return "{}:{}{}".format(label, value, unit)
-
-import re
-def format(html):
-    nice = ""
-    pattern_open = "<\w*\s+[^>]*\s*>"
-    pattern_close = "</\w*>"
-    pattern = "({}|{})".format(pattern_open, pattern_close)
-    divs = re.split(pattern, html)
-    divs = [re.sub("\n", "", d) for d in divs]
-    divs = [ d for d in divs if re.search("[^\s]", d)]
-    divs = [re.sub("^\s*|\s*$", "", d) for d in divs]
-    indentations = 0
-    for d in divs:
-        if is_close(d):
-            indentations -= 1
-        nice += indent(d, indentations) + "\n"
-        if is_open(d):
-            indentations += 1
-
-    return nice
-
-def is_open(div):
-    return "<div" in div
-
-def is_close(div):
-    return "</" in div
-
-def indent(text, levels):
-    indentation = ""
-    for i in range(levels):
-        indentation += "    "
-    return indentation + text
-
 
