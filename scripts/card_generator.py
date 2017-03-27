@@ -37,6 +37,8 @@ def create_effect(label, value):
         return victory(value)
     if label == "coin":
         return coin(value)
+    if label == "bouclier":
+        return bouclier(value)
     return ""
 
 def victory(n):
@@ -45,6 +47,10 @@ def victory(n):
 
 def coin(n):
     content = '<img class="full-screen" src="images/coin.png">' + wrap_in_div('<div class="center coins chiffres">', str(n))
+    return wrap_in_div(position(10, 90, 50, 51), content)
+
+def bouclier(n):
+    content = '<img class="full-screen" src="images/bouclier.png">'
     return wrap_in_div(position(10, 90, 50, 51), content)
 
 def get_name(card_name):
