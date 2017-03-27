@@ -1,10 +1,10 @@
 class Card():
-    def __init__(self):
-        self.color = None
+    def __init__(self, color, name, picture):
+        self.color = color
         self.cost = None
         self.dependency = None
-        self.name = None
-        self.picture = None
+        self.name = name
+        self.picture = picture
         self.players = None
         self.effect = {}
 
@@ -16,21 +16,15 @@ def get_all_cards():
     return cards
 
 def aqueduc():
-    card = Card()
-    card.color = "bleue"
+    card = Card("bleue", "AQUEDUC", "aqueduc.png")
     card.cost = ["pierre", "pierre", "pierre"]
     card.dependency = "BAINS"
-    card.name = "AQUEDUC"
-    card.picture = "aqueduc.png"
     card.players = 3
     card.effect["victory"] = 5
     return card
 
 def taverne():
-    card = Card()
-    card.color = "jaune"
-    card.name = "TAVERNE"
-    card.picture = "image_taverne.jpg"
+    card = Card("jaune", "TAVERNE", "image_taverne.jpg")
     card.players = 5
     card.effect["coin"] = 5
     return card
