@@ -1,5 +1,6 @@
 from unittests import Tester
-from card_generator import generate_card, Config
+from card_generator import generate_card
+import cards
 
 class CardsGeneratorTester(Tester):
     def aqueduc_test(self):
@@ -43,7 +44,7 @@ class CardsGeneratorTester(Tester):
     </div>
 </div>
 """
-        actual = generate_card(Config())
+        actual = generate_card(cards.aqueduc())
         if not expected == actual:
             print(actual)
             assert False
@@ -71,15 +72,7 @@ class CardsGeneratorTester(Tester):
     </div>
 </div>
 """
-        config = Config()
-        config.color = "jaune"
-        config.cost = None
-        config.dependency = None
-        config.name = "TAVERNE"
-        config.picture = "image_taverne.jpg"
-        config.players = 5
-        config.effect = {"coin":5}
-        actual = generate_card(config)
+        actual = generate_card(cards.taverne())
         if not expected == actual:
             print(actual)
             assert False

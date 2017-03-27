@@ -1,17 +1,6 @@
 from cost import generate_cost
 from html import *
 
-class Config():
-    def __init__(self):
-        self.color = "bleue"
-        self.cost = ["pierre", "pierre", "pierre"]
-        self.dependency = "BAINS"
-        self.name = "AQUEDUC"
-        self.picture = "aqueduc.png"
-        self.players = 3
-        self.effect = {"victory": 5}
-
-
 def generate_card(config):
     return format(wrap_in_card_container(get_card_content(config)))
 
