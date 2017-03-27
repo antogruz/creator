@@ -1,6 +1,6 @@
 <div class="marge carte-size">
     <div class="carte jaune">
-        <div style="position:absolute;top:10px;left:90px;width:55px;height:55px">
+        <div style="position:absolute;top:10px;left:90px;width:50px;height:51px">
             <img class="full-screen" src="images/coin.png">
             <div class="center coins chiffres">
                 5

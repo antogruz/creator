@@ -45,7 +45,7 @@ def victory(n):
 
 def coin(n):
     content = '<img class="full-screen" src="images/coin.png">' + wrap_in_div('<div class="center coins chiffres">', str(n))
-    return wrap_in_div(position(10, 90, 55, 55), content)
+    return wrap_in_div(position(10, 90, 50, 51), content)
 
 def get_name(card_name):
     name = wrap_in_div('<div class="background-name background-full text-name">', card_name)
