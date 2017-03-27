@@ -2,8 +2,8 @@
 
 set -e
 
-for file in grid_html.py html_generation.py
+for file in tests/*.py
 do
-	PYTHONPATH=$PYTHONPATH:scripts/ python3 tests/$file
+	PYTHONPATH=$PYTHONPATH:scripts/ python3 $file
 done
 
