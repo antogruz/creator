@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -e
+
+PYTHONPATH=$PYTHONPATH:scripts/ python3 scripts/visual_confirmation.py
+firefox "view/generated_view.html" &

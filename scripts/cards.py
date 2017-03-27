@@ -13,6 +13,8 @@ def get_all_cards():
     cards.append(aqueduc())
     cards.append(taverne())
 
+    return cards
+
 def aqueduc():
     card = Card()
     card.color = "bleue"
