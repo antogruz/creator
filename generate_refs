@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+
+PYTHONPATH=$PYTHONPATH:scripts/ python3 scripts/create_new_refs.py

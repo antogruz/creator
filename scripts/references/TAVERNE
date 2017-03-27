@@ -1,0 +1,21 @@
+<div class="marge carte-size">
+    <div class="carte jaune">
+        <div style="position:absolute;top:10px;left:90px;width:55px;height:55px">
+            <img class="full-screen" src="images/coin.png">
+            <div class="center coins chiffres">
+                5
+            </div>
+        </div>
+        <div style="position:absolute;bottom:0;left:10px;width:20px;height:90px">
+            <div class="background-name background-full text-name">
+                TAVERNE
+            </div>
+        </div>
+        <div style="position:absolute;bottom:0;right:0;height:77%;width:82%">
+            <img class="full-screen" src="images/image_taverne.jpg"/>
+        </div>
+        <div style="position:absolute;bottom:3px;left:50%" class="text-nombreJoueurs">
+            5+
+        </div>
+    </div>
+</div>
