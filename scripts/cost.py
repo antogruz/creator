@@ -9,11 +9,10 @@ def generate_cost(cost):
     banner_height = resources_start + len(cost) * between_resources + 4
 
     html = wrap_in_div(position(0, 10, 13, banner_height), banner())
-    left = 5
-    size = 24
     top = resources_start
     for resource_name in cost:
-        html += wrap_in_div(position(top, left, size, size), resource(resource_name))
+        size = 24
+        html += wrap_in_div(position(top, 5, size, size), resource(resource_name))
         top += between_resources
     return html
 
