@@ -1,6 +1,9 @@
 def wrap_in_div(div, content):
     return div + content + "</div>"
 
+def size(width, height):
+    return [dim("width", width), dim("height", height)]
+
 def position(top, left, width, height):
     return div([style(["position:absolute", dim("top", top), dim("left", left), dim("width", width), dim("height", height)])])
 

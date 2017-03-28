@@ -1,7 +1,7 @@
-from html import *
+import html
 
 def generate_name(card_name):
     position = ["position:absolute", "bottom:0", "left:10px"]
-    size = ["width:20px", "height:90px"]
-    name = wrap_in_div('<div class="background-name background-full text-name">', card_name)
-    return wrap_in_div(div([style(position + size)]), name)
+    size = html.size(20, 90)
+    name = html.wrap_in_div('<div class="background-name background-full text-name">', card_name)
+    return html.wrap_in_div(html.div([html.style(position + size)]), name)
