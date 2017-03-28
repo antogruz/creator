@@ -1,4 +1,5 @@
 from cost import generate_cost
+from name import generate_name
 from html import *
 
 def generate_card(config):
@@ -11,7 +12,7 @@ def get_card_content(config):
     content = generate_cost(config.cost)
     content += get_dependency(config.dependency)
     content += get_effect(config.effect)
-    content += get_name(config.name)
+    content += generate_name(config.name)
     content += get_picture(config.picture)
     content += get_players(config.players)
 
@@ -52,10 +53,6 @@ def coin(n):
 def bouclier(n):
     content = '<img class="full-screen" src="images/bouclier.png">'
     return wrap_in_div(position(10, 90, 50, 51), content)
-
-def get_name(card_name):
-    name = wrap_in_div('<div class="background-name background-full text-name">', card_name)
-    return wrap_in_div('<div style="position:absolute;bottom:0;left:10px;width:20px;height:90px">', name)
 
 def get_picture(file_name):
     return wrap_in_div('<div style="position:absolute;bottom:0;right:0;height:77%;width:82%">', '<img class="full-screen" src="images/{}"/>'.format(file_name))
