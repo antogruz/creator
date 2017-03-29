@@ -1,4 +1,3 @@
-
 def wrap(div, content):
     return div + content + "</div>"
 
