@@ -18,9 +18,6 @@ def get_card_content(config):
 
     return wrap('<div class="carte {}">'.format(config.color), content)
 
-def at_position(top, left, width, height, content):
-    return wrap(position(top, left, width, height), content)
-
 def get_dependency(name):
     if not name or len(name) == 0:
         return ""
