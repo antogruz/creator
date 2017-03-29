@@ -1,5 +1,6 @@
 from cost import generate_cost
 from name import generate_name
+from dependency import generate_dependency
 from html import *
 
 def generate_card(config):
@@ -10,7 +11,7 @@ def wrap_in_card_container(content):
 
 def get_card_content(config):
     content = generate_cost(config.cost)
-    content += get_dependency(config.dependency)
+    content += generate_dependency(config.dependency)
     content += get_effect(config.effect)
     content += generate_name(config.name)
     content += get_picture(config.picture)
@@ -18,11 +19,6 @@ def get_card_content(config):
 
     return wrap('<div class="carte {}">'.format(config.color), content)
 
-def get_dependency(name):
-    if not name or len(name) == 0:
-        return ""
-
-    return wrap(position(0, 32, 12, 25), wrap('<div class="background-banner background-full text-dependance">', name))
 
 def get_effect(effects):
     html = ""
