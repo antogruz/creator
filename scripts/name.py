@@ -6,7 +6,7 @@ def generate_name(card_name):
     return html.add_style(position + size, create_text_on_background(card_name))
 
 def create_text_on_background(text):
-    return html.wrap_in_div('<div class="background-name background-full text-name">', text)
+    return html.wrap('<div class="background-name background-full text-name">', text)
 
 def get_size(text):
     banner_height = 11 * len(text)
