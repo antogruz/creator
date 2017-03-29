@@ -1,3 +1,4 @@
+
 def wrap_in_div(div, content):
     return div + content + "</div>"
 
@@ -15,6 +16,9 @@ def style(elements):
 
 def dim(label, value, unit="px"):
     return "{}:{}{}".format(label, value, unit)
+
+def add_style(style_attributes, content):
+    return wrap_in_div(div([style(style_attributes)]), content)
 
 import re
 def format(html):
