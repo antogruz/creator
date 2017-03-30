@@ -4,9 +4,6 @@ def wrap(div, content):
 def size(width, height):
     return [dim("width", width), dim("height", height)]
 
-def position(top, left, width, height):
-    return div([style(["position:absolute", dim("top", top), dim("left", left), dim("width", width), dim("height", height)])])
-
 def div(attributes):
     return "<div " + " ".join(attributes) + ">"
 
