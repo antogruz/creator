@@ -2,7 +2,7 @@ from cost import generate_cost
 from name import generate_name
 from dependency import generate_dependency
 from effects import generate_effects
-from html import add_style, wrap, div, style, dim, format
+from html import add_style, wrap, format
 
 def generate_card(config):
     return format(wrap_in_card_container(get_card_content(config)))
@@ -28,5 +28,5 @@ def get_picture(file_name):
 
 def get_players(n):
     position = ["position:absolute", "bottom:3px", "left:50%"]
-    return wrap(div([style(["position:absolute", dim("bottom", 3), dim("left", 50, "%")]), 'class="text-nombreJoueurs"']), "{}+".format(str(n)))
+    return add_style(position, wrap('<div class="text-nombreJoueurs">', str(n) + "+"))
 

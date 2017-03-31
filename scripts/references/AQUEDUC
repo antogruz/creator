@@ -32,8 +32,10 @@
         <div style="position:absolute;bottom:0;right:0;height:77%;width:82%">
             <img class="full-screen" src="images/aqueduc.png"/>
         </div>
-        <div style="position:absolute;bottom:3px;left:50%" class="text-nombreJoueurs">
-            3+
+        <div style="position:absolute;bottom:3px;left:50%">
+            <div class="text-nombreJoueurs">
+                3+
+            </div>
         </div>
     </div>
 </div>
