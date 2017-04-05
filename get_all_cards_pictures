@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -euo pipefail
+readonly scriptDir=$(dirname $0)
+readonly tmpDir=/tmp/cards-$$
+trap "rm -rf $tmpDir" EXIT
+mkdir -p $tmpDir
+
+./scripts/download_all.py $tmpDir
+./scripts/crop.py $tmpDir $scriptDir/view/images/cards_pictures
