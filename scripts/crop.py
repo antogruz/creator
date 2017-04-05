@@ -9,7 +9,7 @@ def main():
     ensure_dir_exists(destination)
     for card in list_of_cards.get_all():
         print(card)
-        crop_card(source + "/" + card + ".jpg", destination + "/" + card + ".jpg")
+        crop_card(jpg_file(source, card), jpg_file(destination, card))
 
 def parse_source_and_destination():
     parser = argparse.ArgumentParser()
@@ -32,5 +32,7 @@ def crop(src, dest, x, y, width, height):
 def shellquote(s):
     return "'" + s.replace("'", "'\\''") + "'"
 
+def jpg_file(dir, name):
+    return dir + "/" + name + ".jpg"
 
 main()
