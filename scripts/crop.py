@@ -16,8 +16,6 @@ def crop_card(name):
 def crop(src, dest, x, y, width, height):
     src = shellquote(src)
     dest = shellquote(dest)
-    print(src)
-    print(dest)
     os.system("convert -crop {}x{}+{}+{} {} {}".format(width, height, x, y, src, dest))
 
 def shellquote(s):
