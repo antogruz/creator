@@ -13,6 +13,7 @@ def get_all_cards():
     cards.append(aqueduc())
     cards.append(taverne())
     cards.append(caserne())
+    cards.append(atelier())
 
     return cards
 
@@ -35,4 +36,11 @@ def caserne():
     card.cost = ["minerai"]
     card.players = 3
     card.effect["bouclier"] = 1
+    return card
+
+def atelier():
+    card = Card("vert", "ATELIER", "atelier.jpg")
+    card.cost = ["verre"]
+    card.players = 3
+    card.effect["roue"] = 1
     return card

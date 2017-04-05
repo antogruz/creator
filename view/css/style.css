@@ -42,6 +42,10 @@ body {
     background-image : url('../images/red_background.jpg');
 }
 
+.vert {
+    background-image : url("../images/green_background.jpg");
+}
+
 .couts-area {
     display: flex;
     height: 50%;

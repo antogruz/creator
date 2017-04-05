@@ -22,7 +22,8 @@ def create_symbol_drawer(label, value):
         return Coins(value)
     if label == "bouclier":
         return Bouclier()
-    return None
+    if label == "roue":
+        return Roue()
 
 class Victory:
     def __init__(self, points):
@@ -51,3 +52,11 @@ class Bouclier:
 
     def get(self):
         return '<img class="full-screen" src="images/bouclier.png">'
+
+class Roue:
+    def size(self):
+        return html.size(50, 51)
+
+    def get(self):
+        return '<img class="full-screen" src="images/roue.png">'
+
