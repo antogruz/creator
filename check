@@ -4,6 +4,6 @@ set -e
 
 for file in tests/*.py
 do
-	PYTHONPATH=$PYTHONPATH:scripts/ python3 $file
+	PYTHONPATH=$PYTHONPATH:src/ python3 $file
 done
 

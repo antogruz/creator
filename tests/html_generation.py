@@ -24,7 +24,7 @@ def read_file_content(filename):
 
 
 def confront_reference(card):
-    expected = read_file_content("scripts/references/{}".format(card.name))
+    expected = read_file_content("src/references/{}".format(card.name))
     actual = generate_card(card)
     assert_html_equals(expected, actual)
 
