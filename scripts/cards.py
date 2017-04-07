@@ -13,7 +13,6 @@ def get_all_cards():
     cards.append(aqueduc())
     cards.append(taverne())
     cards.append(caserne())
-    cards.append(atelier())
 
     return cards
 
