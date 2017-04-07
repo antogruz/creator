@@ -6,7 +6,7 @@ def main():
         export_ref(card.name, generate_card(card))
 
 def export_ref(filename, card):
-    dir = "src/references/"
+    dir = "tests/references/"
     with open(dir + filename, "w") as fh:
         fh.write(card)
 
