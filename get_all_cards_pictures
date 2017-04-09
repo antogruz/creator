@@ -6,5 +6,5 @@ readonly tmpDir=/tmp/cards-$$
 trap "rm -rf $tmpDir" EXIT
 mkdir -p $tmpDir
 
-./scripts/download_all.py $tmpDir
-./scripts/crop.py $tmpDir $scriptDir/view/images/cards_pictures
+./pictures_scripts/download_all.py $tmpDir
+./pictures_scripts/crop.py $tmpDir $scriptDir/view/images/cards_pictures
