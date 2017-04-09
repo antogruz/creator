@@ -24,6 +24,9 @@ def ensure_dir_exists(d):
 def crop_card(input, output):
     crop(input, output, 107, 200, 373, 560)
 
+def crop_quad(input, output, x, y, side):
+    crop(input, output, x, y, side, side)
+
 def crop(src, dest, x, y, width, height):
     src = shellquote(src)
     dest = shellquote(dest)
@@ -35,4 +38,6 @@ def shellquote(s):
 def jpg_file(dir, name):
     return dir + "/" + name + ".jpg"
 
-main()
+
+if __name__ == "__main__":
+    main()

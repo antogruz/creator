@@ -13,6 +13,7 @@ def get_all_cards():
     cards.append(aqueduc())
     cards.append(taverne())
     cards.append(caserne())
+    cards.append(palace())
 
     return cards
 
@@ -43,3 +44,11 @@ def atelier():
     card.players = 3
     card.effect["roue"] = 1
     return card
+
+def palace():
+    card = Card("bleue", "PALACE", "palace.jpg")
+    card.cost = ["pierre", "minerai", "argile", "bois", "verre", "tissu", "papyrus"]
+    card.players = 7
+    card.effect["victory"] = 8
+    return card
+

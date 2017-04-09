@@ -17,6 +17,9 @@ class CardsGeneratorTester(Tester):
     def caserne_test(self):
         confront_reference(cards.caserne())
 
+    def palace_test(self):
+        confront_reference(cards.palace())
+
 
 def read_file_content(filename):
     with open(filename, "r") as fh:
