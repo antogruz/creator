@@ -14,6 +14,7 @@ def get_all_cards():
     cards.append(taverne())
     cards.append(caserne())
     cards.append(palace())
+    cards.append(palissade())
 
     return cards
 
@@ -50,5 +51,12 @@ def palace():
     card.cost = ["pierre", "minerai", "argile", "bois", "verre", "tissu", "papyrus"]
     card.players = 7
     card.effect["victory"] = 8
+    return card
+
+def palissade():
+    card = Card("rouge", "PALISSADE", "palissade.jpg")
+    card.cost = ["bois"]
+    card.players = 3
+    card.effect["bouclier"] = 1
     return card
 
