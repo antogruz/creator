@@ -22,7 +22,19 @@ def extract_resource(input, output):
     os.system("eog {}".format(output))
 
 def crop_resource_zone(card, output):
-    crop.crop_quad(card, output, 196, 44, quad_side)
+    if "Cavité" in card:
+        w = 187
+        h = 38
+    elif "Chantier" in card:
+        w = 196
+        h = 47
+    elif "Verrerie" in card:
+        w = 198
+        h = 40
+    else:
+        w = 196
+        h = 44
+    crop.crop_quad(card, output, w, h, quad_side)
 
 def parse_source_and_destination():
     parser = argparse.ArgumentParser()
