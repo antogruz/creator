@@ -23,6 +23,9 @@ class CardsGeneratorTester(Tester):
     def palissade_test(self):
         confront_reference(cards.palissade())
 
+    def cavite_test(self):
+        confront_reference(cards.cavite())
+
 
 def read_file_content(filename):
     with open(filename, "r") as fh:

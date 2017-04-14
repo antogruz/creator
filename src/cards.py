@@ -14,7 +14,7 @@ def get_all_cards():
     cards.append(taverne())
     cards.append(caserne())
     cards.append(palace())
-    cards.append(palissade())
+    cards.append(cavite())
 
     return cards
 
@@ -58,5 +58,11 @@ def palissade():
     card.cost = ["bois"]
     card.players = 3
     card.effect["bouclier"] = 1
+    return card
+
+def cavite():
+    card = Card("marron", "CAVITÉ", "cavite.jpg")
+    card.players = 3
+    card.effect["resource"] = ["pierre"]
     return card
 

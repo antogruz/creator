@@ -46,6 +46,10 @@ body {
     background-image : url("../images/green_background.jpg");
 }
 
+.marron {
+	background-image : url("../images/brown_background.jpg");
+}
+
 .couts-area {
     display: flex;
     height: 50%;
