@@ -11,9 +11,10 @@ def wrap_in_card_container(content):
     return wrap('<div class="marge carte-size">', content)
 
 def get_card_content(config):
+    background_color = config.color
     content = generate_cost(config.cost)
     content += generate_dependency(config.dependency)
-    content += generate_effects(config.effect)
+    content += generate_effects(config.effect, background_color)
     content += generate_name(config.name)
     content += get_picture(config.picture)
     content += get_players(config.players)

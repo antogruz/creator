@@ -1,25 +1,23 @@
 import html
 
-def generate_effects(effects):
+def generate_effects(effects, background_color):
     representation = ""
     for key, value in effects.items():
-        representation += create_effect(key, value)
+        representation += create_effect(key, value, background_color)
     return representation
 
-def create_effect(label, value):
+def create_effect(label, value, background_color):
     position = ["position:absolute", "top:10px", "left:90px"]
-    symbol = create_symbol_drawer(label, value)
+    symbol = create_symbol_drawer(label, value, background_color)
     size = symbol.size()
     representation = symbol.get()
 
     return html.add_style(position + size, representation)
 
 
-def create_symbol_drawer(label, value):
+def create_symbol_drawer(label, value, background_color):
     if label == "victory":
-        return Victory(value)
-    if label == "victory_black":
-        return VictoryBlack(value)
+        return Victory(value, background_color)
     if label == "coin":
         return Coins(value)
     if label == "bouclier":
@@ -30,19 +28,18 @@ def create_symbol_drawer(label, value):
         return Resource(value)
 
 class Victory:
-    def __init__(self, points):
+    def __init__(self, points, background_color):
         self.points = points
+        if background_color == "blanche":
+            self.text_color = "coins"
+        else:
+            self.text_color = "victoire"
 
     def size(self):
         return html.size(60, 55)
 
     def get(self):
-        return '<img class="full-screen" src="images/laurier3.png">' + html.wrap('<div class="center victoire chiffres">', str(self.points))
-
-class VictoryBlack(Victory):
-    def get(self):
-        return '<img class="full-screen" src="images/laurier3.png">' + html.wrap('<div class="center coins chiffres">', str(self.points))
-
+        return '<img class="full-screen" src="images/laurier3.png">' + html.wrap('<div class="center {} chiffres">'.format(self.text_color), str(self.points))
 
 class Coins:
     def __init__(self, coins):
