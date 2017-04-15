@@ -31,9 +31,9 @@ class Victory:
     def __init__(self, points, background_color):
         self.points = points
         if background_color == "blanche":
-            self.text_color = "coins"
+            self.text_color = "black-text"
         else:
-            self.text_color = "victoire"
+            self.text_color = "white-text"
 
     def size(self):
         return html.size(60, 55)
@@ -49,7 +49,7 @@ class Coins:
         return html.size(50, 51)
 
     def get(self):
-        return '<img class="full-screen" src="images/coin.png">' + html.wrap('<div class="center coins chiffres">', str(self.coins))
+        return '<img class="full-screen" src="images/coin.png">' + html.wrap('<div class="center black-text chiffres">', str(self.coins))
 
 
 class Bouclier:

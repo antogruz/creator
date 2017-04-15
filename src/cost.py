@@ -40,5 +40,5 @@ def resource(name):
         return '<img class="full-screen" src="images/{}.png"/>'.format(name)
 
 def coin(n):
-    return '<img class="full-screen" src="images/coin.png">' + html.wrap('<div style="font-size:1em" class="center coins chiffres">', n)
+    return '<img class="full-screen" src="images/coin.png">' + html.wrap('<div style="font-size:1em" class="center black-text chiffres">', n)
 
