@@ -18,6 +18,8 @@ def create_effect(label, value):
 def create_symbol_drawer(label, value):
     if label == "victory":
         return Victory(value)
+    if label == "victory_black":
+        return VictoryBlack(value)
     if label == "coin":
         return Coins(value)
     if label == "bouclier":
@@ -36,6 +38,11 @@ class Victory:
 
     def get(self):
         return '<img class="full-screen" src="images/laurier3.png">' + html.wrap('<div class="center victoire chiffres">', str(self.points))
+
+class VictoryBlack(Victory):
+    def get(self):
+        return '<img class="full-screen" src="images/laurier3.png">' + html.wrap('<div class="center coins chiffres">', str(self.points))
+
 
 class Coins:
     def __init__(self, coins):

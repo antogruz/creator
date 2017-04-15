@@ -71,6 +71,6 @@ def cavite():
 def sappho():
     card = Card("blanche", "SAPPHO", "sappho.jpg")
     card.cost = ["coin1"]
-    card.effect["victory"] = 2
+    card.effect["victory_black"] = 2
     return card
 
