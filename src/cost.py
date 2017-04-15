@@ -32,6 +32,13 @@ def generate_resource(position, name):
 def banner():
     return '<div class="background-banner background-full"> </div>'
 
+import re
 def resource(name):
-    return '<img class="full-screen" src="images/{}.png"/>'.format(name)
+    if "coin" in name:
+        return coin(re.sub("[^0-9]*", "", name))
+    else:
+        return '<img class="full-screen" src="images/{}.png"/>'.format(name)
+
+def coin(n):
+    return '<img class="full-screen" src="images/coin.png">' + html.wrap('<div style="font-size:1em" class="center coins chiffres">', n)
 

@@ -50,6 +50,10 @@ body {
 	background-image : url("../images/brown_background.jpg");
 }
 
+.blanche {
+	background-image : url("../images/white_background.jpg");
+}
+
 .couts-area {
     display: flex;
     height: 50%;

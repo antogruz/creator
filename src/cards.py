@@ -16,6 +16,7 @@ def get_all_cards():
     cards.append(palissade())
     cards.append(palace())
     cards.append(cavite())
+    cards.append(sappho())
 
     return cards
 
@@ -65,5 +66,11 @@ def cavite():
     card = Card("marron", "CAVITÉ", "cavite.jpg")
     card.players = 3
     card.effect["resource"] = ["pierre"]
+    return card
+
+def sappho():
+    card = Card("blanche", "SAPPHO", "sappho.jpg")
+    card.cost = ["coin1"]
+    card.effect["victory"] = 2
     return card
 

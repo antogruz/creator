@@ -27,6 +27,9 @@ def get_picture(file_name):
     return add_style(position + size, '<img class="full-screen" src="images/{}"/>'.format(file_name))
 
 def get_players(n):
+    if not n:
+        return ""
+
     position = ["position:absolute", "bottom:3px", "left:50%"]
     return add_style(position, wrap('<div class="text-nombreJoueurs">', str(n) + "+"))
 
