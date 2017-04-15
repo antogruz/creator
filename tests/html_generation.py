@@ -8,23 +8,10 @@ def main():
 
 
 class CardsGeneratorTester(Tester):
-    def aqueduc_test(self):
-        confront_reference(cards.aqueduc())
-
-    def taverne_test(self):
-        confront_reference(cards.taverne())
-
-    def caserne_test(self):
-        confront_reference(cards.caserne())
-
-    def palace_test(self):
-        confront_reference(cards.palace())
-
-    def palissade_test(self):
-        confront_reference(cards.palissade())
-
-    def cavite_test(self):
-        confront_reference(cards.cavite())
+    def html_generation_test(self):
+        for card in cards.get_all_cards():
+            print (card.name)
+            confront_reference(card)
 
 
 def read_file_content(filename):
