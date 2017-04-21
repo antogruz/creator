@@ -1,4 +1,5 @@
 import html
+from objects import Coins
 
 def generate_effects(effects, background_color):
     representation = ""
@@ -19,7 +20,7 @@ def create_symbol_drawer(label, value, background_color):
     if label == "victory":
         return Victory(value, background_color)
     if label == "coin":
-        return Coins(value)
+        return Coins(value, 50)
     if label == "bouclier":
         return Bouclier()
     if label == "roue":
@@ -40,17 +41,6 @@ class Victory:
 
     def get(self):
         return '<img class="full-screen" src="images/laurier3.png">' + html.wrap('<div class="center {} chiffres">'.format(self.text_color), str(self.points))
-
-class Coins:
-    def __init__(self, coins):
-        self.coins = coins
-
-    def size(self):
-        return html.size(50, 51)
-
-    def get(self):
-        return '<img class="full-screen" src="images/coin.png">' + html.wrap('<div class="center black-text chiffres">', str(self.coins))
-
 
 class Bouclier:
     def size(self):

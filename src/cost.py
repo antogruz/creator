@@ -1,4 +1,5 @@
 import html
+from objects import Coins
 
 first_resource_top = 3
 between_resources = 25
@@ -40,5 +41,6 @@ def resource(name):
         return '<img class="full-screen" src="images/{}.png"/>'.format(name)
 
 def coin(n):
-    return '<img class="full-screen" src="images/coin.png">' + html.wrap('<div style="font-size:1em" class="center black-text chiffres">', n)
+    c = Coins(n, 24)
+    return c.get()
 

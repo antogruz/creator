@@ -6,7 +6,7 @@
         </div>
         <div style="position:absolute;top:3px;left:5px;width:24px;height:24px">
             <img class="full-screen" src="images/coin.png">
-            <div style="font-size:1em" class="center black-text chiffres">
+            <div style="font-size:1.056em" class="center black-text chiffres">
                 1
             </div>
         </div>
