@@ -26,7 +26,8 @@ def append_symbols(list, label, value, background_color):
     if label == "roue":
         list.append(Roue())
     if label == "resource":
-        list.append(Resource(value))
+        for resource in value:
+            list.append(Resource(resource))
 
 
 class Victory:
@@ -58,11 +59,11 @@ class Roue:
         return '<img class="full-screen" src="images/roue.png">'
 
 class Resource:
-    def __init__(self, resources):
-        self.resources = resources
+    def __init__(self, resource):
+        self.resource = resource
 
     def size(self):
         return html.size(50, 51)
 
     def get(self):
-        return '<img class="full-screen" src="images/{}.png">'.format(self.resources[0])
+        return '<img class="full-screen" src="images/{}.png">'.format(self.resource)

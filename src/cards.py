@@ -13,10 +13,10 @@ def get_all_cards():
     cards.append(aqueduc())
     cards.append(taverne())
     cards.append(caserne())
-    cards.append(palissade())
     cards.append(palace())
     cards.append(cavite())
     cards.append(sappho())
+    cards.append(scierie())
 
     return cards
 
@@ -55,13 +55,6 @@ def palace():
     card.effect["victory"] = 8
     return card
 
-def palissade():
-    card = Card("rouge", "PALISSADE", "palissade.jpg")
-    card.cost = ["bois"]
-    card.players = 3
-    card.effect["bouclier"] = 1
-    return card
-
 def cavite():
     card = Card("marron", "CAVITÉ", "cavite.jpg")
     card.players = 3
@@ -72,5 +65,12 @@ def sappho():
     card = Card("blanche", "SAPPHO", "sappho.jpg")
     card.cost = ["coin1"]
     card.effect["victory"] = 2
+    return card
+
+def scierie():
+    card = Card("marron", "SCIERIE", "scierie.jpg")
+    card.cost = ["coin1"]
+    card.effect["resource"] = ["bois", "bois"]
+    card.players = 4
     return card
 
