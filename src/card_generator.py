@@ -14,7 +14,12 @@ def get_card_content(config):
     background_color = config.color
     content = generate_cost(config.cost)
     content += generate_dependency(config.dependency)
-    content += generate_effects(config.effect, background_color)
+    left = 10
+    if config.cost is not None:
+        left += 16
+    if config.dependency is not None:
+        left += 16
+    content += generate_effects(config.effect, background_color, left)
     content += generate_name(config.name)
     content += get_picture(config.picture)
     content += get_players(config.players)
