@@ -1,5 +1,5 @@
 import html
-from objects import Coins, Quad
+from objects import Coins, Quad, Victory, Bouclier, Roue, Resource
 
 def generate_effects(effects, background_color):
     symbols_to_draw = []
@@ -39,42 +39,3 @@ def append_symbols(list, label, value, background_color):
         for resource in value:
             list.append(Resource(resource))
 
-
-class Victory:
-    def __init__(self, points, background_color):
-        self.points = points
-        if background_color == "blanche":
-            self.text_color = "black-text"
-        else:
-            self.text_color = "white-text"
-
-    def width(self):
-        return 60
-
-    def height(self):
-        return 55
-
-    def get(self):
-        return '<img class="full-screen" src="images/laurier3.png">' + html.wrap('<div class="center {} chiffres">'.format(self.text_color), str(self.points))
-
-class Bouclier(Quad):
-    def __init__(self, size=50):
-        Quad.__init__(self, size)
-
-    def get(self):
-        return '<img class="full-screen" src="images/bouclier.png">'
-
-class Roue(Quad):
-    def __init__(self, size=50):
-        Quad.__init__(self, size)
-
-    def get(self):
-        return '<img class="full-screen" src="images/roue.png">'
-
-class Resource(Quad):
-    def __init__(self, resource, size=50):
-        Quad.__init__(self, size)
-        self.resource = resource
-
-    def get(self):
-        return '<img class="full-screen" src="images/{}.png">'.format(self.resource)
