@@ -16,7 +16,6 @@ def get_all_cards():
     cards.append(palace())
     cards.append(cavite())
     cards.append(sappho())
-    cards.append(scierie())
 
     return cards
 
