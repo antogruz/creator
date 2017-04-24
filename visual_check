@@ -2,5 +2,5 @@
 
 set -e
 
-PYTHONPATH=$PYTHONPATH:src/ python3 src/visual_confirmation.py
+PYTHONPATH=$PYTHONPATH:src/ python3 src/visual_confirmation.py $@
 firefox "view/generated_view.html" &

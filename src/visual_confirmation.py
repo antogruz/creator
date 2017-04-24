@@ -1,50 +1,41 @@
 from cards import get_all_cards
 from card_generator import generate_card
+from gallery import Gallery
 import re
+import argparse
 
 def main():
-    html = generate_html_with_all_cards()
+    html = generate_gallery(choose_cards())
     write_in_file("view/generated_view.html", html)
 
+def choose_cards():
+    if is_diff_mode():
+        return get_cards_that_differs()
+    else:
+        return [generate_card(card) for card in get_all_cards()]
 
+def is_diff_mode():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--diff", action="store_true")
+    return parser.parse_args().diff
 
-class Galerie:
-    def __init__(self):
-        self.cards = []
-        self.opened_lines = 0
-
-    def add_card(self, card):
-        self.cards.append(card)
-
-    def display(self):
-        html = ""
-        for i, card in zip(range(len(self.cards)), self.cards):
-            if i % 4 == 0:
-                html += self.open_line()
-            html += card
-            if i % 4 == 3:
-                html += self.close_line()
-        self.close_line()
-        return html
-
-    def open_line(self):
-        self.opened_lines += 1
-        return '<div class="galerie">'
-
-    def close_line(self):
-        if self.opened_lines > 0:
-            self.opened_lines -= 1
-            return '</div>'
-
-        return ""
-
-def generate_html_with_all_cards():
-    gallery_html = read_content("view/gallery.html")
-    galerie = Galerie()
+def get_cards_that_differs():
+    cards = []
     for card in get_all_cards():
-        galerie.add_card(generate_card(card))
+        generated = generate_card(card)
+        reference = read_content("tests/references/{}".format(card.name))
+        if generated != reference:
+            cards.append(reference)
+            cards.append(generated)
+    return cards
 
-    return re.sub("python-galerie", galerie.display(), gallery_html)
+def generate_gallery(cards):
+    gallery_html = read_content("view/gallery.html")
+    gallery = Gallery()
+    for card in cards:
+        gallery.add_card(card)
+
+    return re.sub("python-galerie", gallery.display(), gallery_html)
 
 def read_content(file):
     with open(file, "r") as fh:
@@ -53,6 +44,5 @@ def read_content(file):
 def write_in_file(file, html):
     with open(file, "w") as fh:
         fh.write(html)
-
 
 main()
