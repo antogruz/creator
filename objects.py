@@ -1,15 +1,18 @@
 import html
 
 class Coins:
-    def __init__(self, coins, height):
+    def __init__(self, coins, size):
         self.coins = coins
-        self.height = height
+        self.size = size
 
-    def size(self):
-        return html.size(self.height, self.height)
+    def width(self):
+        return self.size
+
+    def height(self):
+        return self.size
 
     def get(self):
         return '<img class="full-screen" src="images/coin.png">' + html.wrap('<div style="font-size:{}em" class="center black-text chiffres">'.format(self.getTextSize()), str(self.coins))
 
     def getTextSize(self):
-        return self.height * 2.2 / 50
+        return self.size * 2.2 / 50

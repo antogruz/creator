@@ -9,12 +9,19 @@ def generate_effects(effects, background_color):
     return draw_symbols(symbols_to_draw)
 
 
-def draw_symbols(list):
-    symbol = list[0]
-    position = ["position:absolute", "top:10px", "left:90px"]
+def draw_symbols(symbols):
+    left = get_left_position(symbols)
+    draw = ""
+    padding = 5
+    for symbol in symbols:
+        position = ["position:absolute", "top:10px", "left:{}px".format(left)]
+        draw += html.add_style(position + html.size(symbol.width(), symbol.height()), symbol.get())
+        left += padding + symbol.width()
 
-    return html.add_style(position + symbol.size(), symbol.get())
+    return draw
 
+def get_left_position(symbols):
+    return 90
 
 def append_symbols(list, label, value, background_color):
     if label == "victory":
@@ -38,22 +45,31 @@ class Victory:
         else:
             self.text_color = "white-text"
 
-    def size(self):
-        return html.size(60, 55)
+    def width(self):
+        return 60
+
+    def height(self):
+        return 55
 
     def get(self):
         return '<img class="full-screen" src="images/laurier3.png">' + html.wrap('<div class="center {} chiffres">'.format(self.text_color), str(self.points))
 
 class Bouclier:
-    def size(self):
-        return html.size(50, 51)
+    def width(self):
+        return 50
+
+    def height(self):
+        return 51
 
     def get(self):
         return '<img class="full-screen" src="images/bouclier.png">'
 
 class Roue:
-    def size(self):
-        return html.size(50, 51)
+    def width(self):
+        return 50
+
+    def height(self):
+        return 51
 
     def get(self):
         return '<img class="full-screen" src="images/roue.png">'
@@ -62,8 +78,11 @@ class Resource:
     def __init__(self, resource):
         self.resource = resource
 
-    def size(self):
-        return html.size(50, 51)
+    def width(self):
+        return 50
+
+    def height(self):
+        return 51
 
     def get(self):
         return '<img class="full-screen" src="images/{}.png">'.format(self.resource)
