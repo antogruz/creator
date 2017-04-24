@@ -62,7 +62,7 @@ class Bouclier:
         return 50
 
     def height(self):
-        return 51
+        return 50
 
     def get(self):
         return '<img class="full-screen" src="images/bouclier.png">'
