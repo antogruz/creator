@@ -21,7 +21,10 @@ def draw_symbols(symbols):
     return draw
 
 def get_left_position(symbols):
-    return 90
+    if len(symbols) == 1:
+        return 90
+    else:
+        return 60
 
 def append_symbols(list, label, value, background_color):
     if label == "victory":
