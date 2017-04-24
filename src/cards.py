@@ -17,6 +17,7 @@ def get_all_cards():
     cards.append(cavite())
     cards.append(sappho())
     cards.append(scierie())
+    cards.append(atelier_de_siege())
 
     return cards
 
@@ -72,5 +73,12 @@ def scierie():
     card.cost = ["coin1"]
     card.effect["resource"] = ["bois", "bois"]
     card.players = 4
+    return card
+
+def atelier_de_siege():
+    card = Card("rouge", "ATELIER DE SIÈGE", "atelier_de_siege.jpg")
+    card.cost = ["argile", "argile", "argile", "bois"]
+    card.dependency = "LABORATOIRE"
+    card.effect["bouclier"] = 3
     return card
 

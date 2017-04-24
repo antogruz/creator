@@ -23,8 +23,10 @@ def draw_symbols(symbols):
 def get_left_position(symbols):
     if len(symbols) == 1:
         return 90
-    else:
+    elif len(symbols) == 2:
         return 60
+    else:
+        return 52
 
 def append_symbols(list, label, value, background_color):
     if label == "victory":
@@ -32,7 +34,8 @@ def append_symbols(list, label, value, background_color):
     if label == "coin":
         list.append(Coins(value, 50))
     if label == "bouclier":
-        list.append(Bouclier())
+        for i in range(value):
+            list.append(Bouclier())
     if label == "roue":
         list.append(Roue())
     if label == "resource":

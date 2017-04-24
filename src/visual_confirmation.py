@@ -3,6 +3,7 @@ from card_generator import generate_card
 from gallery import Gallery
 import re
 import argparse
+import os
 
 def main():
     html = generate_gallery(choose_cards())
@@ -23,10 +24,12 @@ def get_cards_that_differs():
     cards = []
     for card in get_all_cards():
         generated = generate_card(card)
-        reference = read_content("tests/references/{}".format(card.name))
-        if generated != reference:
-            cards.append(reference)
-            cards.append(generated)
+        reference_file = "tests/references/{}".format(card.name)
+        if os.path.exists(reference_file):
+            reference = read_content(reference_file)
+            if generated != reference:
+                cards.append(reference)
+                cards.append(generated)
     return cards
 
 def generate_gallery(cards):

@@ -5,7 +5,7 @@ def generate_dependency(name):
         return ""
 
     position = ["position:absolute", "top:0px", "left:32px"]
-    size = html.size(12, 25)
+    size = html.size(12, 5 * len(name))
     return html.add_style(position + size, create_text_on_banner(name))
 
 def create_text_on_banner(text):

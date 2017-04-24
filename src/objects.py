@@ -39,7 +39,7 @@ class Victory:
         return '<img class="full-screen" src="images/laurier3.png">' + html.wrap('<div class="center {} chiffres">'.format(self.text_color), str(self.points))
 
 class Bouclier(Quad):
-    def __init__(self, size=50):
+    def __init__(self, size=46):
         Quad.__init__(self, size)
 
     def get(self):
