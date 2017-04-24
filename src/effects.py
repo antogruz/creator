@@ -2,31 +2,32 @@ import html
 from objects import Coins
 
 def generate_effects(effects, background_color):
-    representation = ""
+    symbols_to_draw = []
     for key, value in effects.items():
-        representation += create_effect(key, value, background_color)
-    return representation
+        append_symbols(symbols_to_draw, key, value, background_color)
 
-def create_effect(label, value, background_color):
+    return draw_symbols(symbols_to_draw)
+
+
+def draw_symbols(list):
+    symbol = list[0]
     position = ["position:absolute", "top:10px", "left:90px"]
-    symbol = create_symbol_drawer(label, value, background_color)
-    size = symbol.size()
-    representation = symbol.get()
 
-    return html.add_style(position + size, representation)
+    return html.add_style(position + symbol.size(), symbol.get())
 
 
-def create_symbol_drawer(label, value, background_color):
+def append_symbols(list, label, value, background_color):
     if label == "victory":
-        return Victory(value, background_color)
+        list.append(Victory(value, background_color))
     if label == "coin":
-        return Coins(value, 50)
+        list.append(Coins(value, 50))
     if label == "bouclier":
-        return Bouclier()
+        list.append(Bouclier())
     if label == "roue":
-        return Roue()
+        list.append(Roue())
     if label == "resource":
-        return Resource(value)
+        list.append(Resource(value))
+
 
 class Victory:
     def __init__(self, points, background_color):
