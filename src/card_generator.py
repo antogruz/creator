@@ -12,7 +12,7 @@ def wrap_in_card_container(content):
 
 def get_card_content(config):
     background_color = config.color
-    content = generate_cost(config.cost)
+    content = generate_cost(config.cost).get(0, 10)
     content += generate_dependency(config.dependency)
     left = 10
     if config.cost is not None:

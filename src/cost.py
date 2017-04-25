@@ -5,26 +5,53 @@ first_resource_top = 3
 between_resources = 25
 
 def generate_cost(cost):
-    if not cost or len(cost) == 0:
-        return ""
+    return CostZone(cost)
 
-    return generate_banner(len(cost)) + generate_resources(cost)
+class CostZone:
+    def __init__(self, cost):
+        self.cost = cost
 
-def generate_banner(resources_count):
-    height = first_resource_top + resources_count * between_resources + 4
-    position = ["position:absolute", "top:0px", "left:10px"]
-    size = html.size(13, height)
-    return html.add_style(position + size, banner())
+    def width(self):
+        if self.cost:
+            return 24
+        else:
+            return 0
 
-def generate_resources(cost):
-    output = ""
-    top = first_resource_top
-    for resource_name in cost:
-        position = ["position:absolute", "top:{}px".format(top), "left:5px"]
-        output += generate_resource(position, resource_name)
-        top += between_resources
-    return output
+    def height(self):
+        return banner_height(len(self.cost))
 
+    def get(self, top, left):
+        if self.cost is None:
+            return ""
+        cost_generator = CostGenerator(top, left)
+        return cost_generator.get(self.cost)
+
+class CostGenerator:
+    def __init__(self, top, left):
+        self.top = top
+        self.left = left
+
+    def get(self, cost):
+        return self.generate_banner(len(cost)) + self.generate_resources(cost)
+
+    def generate_banner(self, resources_count):
+        height = first_resource_top + resources_count * between_resources + 4
+        position = ["position:absolute", "top:{}px".format(self.top), "left:{}px".format(self.left)]
+        size = html.size(13, height)
+        return html.add_style(position + size, banner())
+
+    def generate_resources(self, cost):
+        output = ""
+        top = first_resource_top + self.top
+        for resource_name in cost:
+            position = ["position:absolute", "top:{}px".format(top), "left:5px"]
+            output += generate_resource(position, resource_name)
+            top += between_resources
+        return output
+
+
+def banner_height(resources):
+    return 3 + resources * 24 + 4
 
 def generate_resource(position, name):
     size = html.size(24, 24)
