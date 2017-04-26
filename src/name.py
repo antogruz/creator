@@ -1,13 +1,23 @@
 import html
 
 def generate_name(card_name):
-    position = ["position:absolute", "bottom:0", "left:10px"]
-    size = get_size(card_name)
-    return html.add_style(position + size, create_text_on_background(card_name))
+    return Zone(card_name)
+
+class Zone:
+    def __init__(self, name):
+        self.name = name
+
+    def width(self):
+        return 20
+
+    def height(self):
+        return 11 * len(self.name)
+
+    def get(self, bottom, left):
+        position = ["position:absolute", "bottom:{}".format(bottom), "left:{}px".format(left)]
+        size = html.size(self.width(), self.height())
+        return html.add_style(position + size, create_text_on_background(self.name))
 
 def create_text_on_background(text):
     return html.wrap('<div class="background-name background-full text-name">', text)
 
-def get_size(text):
-    banner_height = 11 * len(text)
-    return html.size(20, banner_height)

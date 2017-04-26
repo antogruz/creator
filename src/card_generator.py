@@ -23,7 +23,7 @@ def get_card_content(config):
     effectsZone = generate_effects(config.effect, background_color)
     content += effectsZone.get(10, center_zone(left, 210, effectsZone.width()))
 
-    content += generate_name(config.name)
+    content += generate_name(config.name).get(0, 10)
     content += get_picture(config.picture)
     content += get_players(config.players)
 
