@@ -19,13 +19,19 @@ def get_card_content(config):
         left += 16
     if config.dependency is not None:
         left += 16
-    content += generate_effects(config.effect, background_color, left)
+
+    effectsZone = generate_effects(config.effect, background_color)
+    content += effectsZone.get(10, center_zone(left, 210, effectsZone.width()))
+
     content += generate_name(config.name)
     content += get_picture(config.picture)
     content += get_players(config.players)
 
     return wrap('<div class="carte {}">'.format(config.color), content)
 
+def center_zone(zone_left, zone_right, width):
+    space = zone_right - zone_left
+    return (space - width) / 2 + zone_left
 
 def get_picture(file_name):
     position = ["position:absolute", "bottom:0", "right:0"]
