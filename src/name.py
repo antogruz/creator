@@ -13,8 +13,8 @@ class Zone:
     def height(self):
         return 11 * len(self.name)
 
-    def get(self, bottom, left):
-        position = ["position:absolute", "bottom:{}".format(bottom), "left:{}px".format(left)]
+    def get(self, top, left):
+        position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
         size = html.size(self.width(), self.height())
         return html.add_style(position + size, create_text_on_background(self.name))
 
