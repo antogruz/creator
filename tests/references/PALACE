@@ -25,7 +25,7 @@
         <div style="position:absolute;top:153px;left:5px;width:24px;height:24px">
             <img class="full-screen" src="images/papyrus.png"/>
         </div>
-        <div style="position:absolute;top:10px;left:85.5px;width:60px;height:55px">
+        <div style="position:absolute;top:10px;left:89.5px;width:60px;height:55px">
             <img class="full-screen" src="images/laurier3.png">
             <div class="center white-text chiffres">
                 8

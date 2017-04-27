@@ -12,27 +12,35 @@ def wrap_in_card_container(content):
     return wrap('<div class="marge carte-size">', content)
 
 def get_card_content(config):
-    width = 210
-    height = 329
-    background_color = config.color
-    content = generate_cost(config.cost).get(0, 10)
-    content += generate_dependency(config.dependency).get(0, 32)
-    left = 10
-    if config.cost is not None:
-        left += 16
-    if config.dependency is not None:
-        left += 16
-
-    effectsZone = generate_effects(config.effect, background_color)
-    content += effectsZone.get(10, center_zone(left, 210, effectsZone.width()))
-
-    nameZone = generate_name(config.name)
-    content += nameZone.get(height - nameZone.height(), 10)
-    pictureZone = PictureZone(config.picture)
-    content += pictureZone.get(height - pictureZone.height(), width - pictureZone.width())
+    card = Card(210, 329)
+    card.add_zones(generate_cost(config.cost), generate_dependency(config.dependency), generate_effects(config.effect, config.color), generate_name(config.name), PictureZone(config.picture))
+    content = card.get()
     content += get_players(config.players)
 
     return wrap('<div class="carte {}">'.format(config.color), content)
+
+class Card:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def add_zones(self, cost, dependency, effects, name, picture):
+        self.cost = cost
+        self.dependency = dependency
+        self.effects = effects
+        self.name = name
+        self.picture = picture
+
+    def get(self):
+        left = 10
+        content = self.cost.get(0, left)
+        left += self.cost.width()
+        content += self.dependency.get(0, left)
+        left += self.dependency.width()
+        content += self.effects.get(10, center_zone(left, self.width, self.effects.width()))
+        content += self.name.get(self.height - self.name.height(), 10)
+        content += self.picture.get(self.height - self.picture.height(), self.width - self.picture.width())
+        return content
 
 
 def center_zone(zone_left, zone_right, width):

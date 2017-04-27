@@ -16,18 +16,18 @@
         <div style="position:absolute;top:78px;left:5px;width:24px;height:24px">
             <img class="full-screen" src="images/bois.png"/>
         </div>
-        <div style="position:absolute;top:0px;left:32px;width:12px;height:55px">
+        <div style="position:absolute;top:0px;left:34px;width:12px;height:55px">
             <div class="background-banner background-full text-dependance">
                 LABORATOIRE
             </div>
         </div>
-        <div style="position:absolute;top:10px;left:49.5px;width:46px;height:46px">
+        <div style="position:absolute;top:10px;left:51.5px;width:46px;height:46px">
             <img class="full-screen" src="images/bouclier.png">
         </div>
-        <div style="position:absolute;top:10px;left:100.5px;width:46px;height:46px">
+        <div style="position:absolute;top:10px;left:102.5px;width:46px;height:46px">
             <img class="full-screen" src="images/bouclier.png">
         </div>
-        <div style="position:absolute;top:10px;left:151.5px;width:46px;height:46px">
+        <div style="position:absolute;top:10px;left:153.5px;width:46px;height:46px">
             <img class="full-screen" src="images/bouclier.png">
         </div>
         <div style="position:absolute;top:153px;left:10px;width:20px;height:176px">
