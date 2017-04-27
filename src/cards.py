@@ -1,8 +1,7 @@
 class Card():
     def __init__(self, color, name, picture):
         self.color = color
-        self.cost = None
-        self.dependency = None
+        self.cost = []
         self.name = name
         self.picture = picture
         self.players = None
@@ -23,8 +22,8 @@ def get_all_cards():
 
 def aqueduc():
     card = Card("bleue", "AQUEDUC", "aqueduc.png")
-    card.cost = ["pierre", "pierre", "pierre"]
-    card.dependency = "BAINS"
+    card.cost.append(["pierre", "pierre", "pierre"])
+    card.cost.append(["BAINS"])
     card.players = 3
     card.effect["victory"] = 5
     return card
@@ -37,21 +36,21 @@ def taverne():
 
 def caserne():
     card = Card("rouge", "CASERNE", "caserne.jpg")
-    card.cost = ["minerai"]
+    card.cost.append(["minerai"])
     card.players = 3
     card.effect["bouclier"] = 1
     return card
 
 def atelier():
     card = Card("vert", "ATELIER", "atelier.jpg")
-    card.cost = ["verre"]
+    card.cost.append(["verre"])
     card.players = 3
     card.effect["roue"] = 1
     return card
 
 def palace():
     card = Card("bleue", "PALACE", "palace.jpg")
-    card.cost = ["pierre", "minerai", "argile", "bois", "verre", "tissu", "papyrus"]
+    card.cost.append(["pierre", "minerai", "argile", "bois", "verre", "tissu", "papyrus"])
     card.players = 7
     card.effect["victory"] = 8
     return card
@@ -64,21 +63,21 @@ def cavite():
 
 def sappho():
     card = Card("blanche", "SAPPHO", "sappho.jpg")
-    card.cost = ["coin1"]
+    card.cost.append(["coin1"])
     card.effect["victory"] = 2
     return card
 
 def scierie():
     card = Card("marron", "SCIERIE", "scierie.jpg")
-    card.cost = ["coin1"]
+    card.cost.append(["coin1"])
     card.effect["resource"] = ["bois", "bois"]
     card.players = 4
     return card
 
 def atelier_de_siege():
     card = Card("rouge", "ATELIER DE SIÈGE", "atelier_de_siege.jpg")
-    card.cost = ["argile", "argile", "argile", "bois"]
-    card.dependency = "LABORATOIRE"
+    card.cost.append(["argile", "argile", "argile", "bois"])
+    card.cost.append(["LABORATOIRE", "argile", "argile", "bois"])
     card.effect["bouclier"] = 3
     return card
 

@@ -1,73 +1,102 @@
 import html
-from objects import Coins
+from objects import Coins, Resource
+import re
 
 first_resource_top = 3
 between_resources = 25
 
-def generate_cost(cost):
-    return CostZone(cost)
+def generate_cost(costs):
+    zone = Zone()
+    for cost in costs:
+        zone.append(Cost(cost))
 
-class CostZone:
-    def __init__(self, cost):
-        self.cost = cost
+    return zone
+
+class Zone:
+    def __init__(self):
+        self.costs = []
+        self.padding = 5
+
+    def append(self, cost):
+        self.costs.append(cost)
 
     def width(self):
-        if self.cost:
-            return 24
-        else:
-            return 0
+        return sum([c.width() + self.padding for c in self.costs])
 
     def height(self):
-        return banner_height(len(self.cost))
+        return max([c.height() for c in self.costs])
 
     def get(self, top, left):
-        if self.cost is None:
+        result = ""
+        cur_left = left
+        for cost in self.costs:
+            result += cost.get(top, cur_left)
+            cur_left += cost.width() + self.padding
+        return result
+
+class Cost:
+    def __init__(self, cost):
+        self.padding_top = 3
+        self.padding_bot = 4
+        self.elements = []
+        for element in cost:
+            self.elements.append(create_element(element))
+
+    def width(self):
+        return max([e.width() for e in self.elements])
+
+    def height(self):
+        return self.padding_top + sum([e.height() for e in self.elements]) + self.padding_bot
+
+    def get(self, top, left):
+        result = ""
+        result += generate_banner(top, left, self.height())
+        cur_top = top + self.padding_top
+        for e in self.elements:
+            result += e.get(cur_top, left)
+            cur_top += e.height()
+
+        return result
+
+def create_element(name):
+    if is_resource(name):
+        return Resource(name, 24)
+    elif "coin" in name:
+        return Coins(re.sub("[^0-9]*", "", name), 24)
+    else:
+        return Dependency(name)
+
+def is_resource(name):
+    return name in ["pierre", "bois", "minerai", "argile", "verre", "papyrus", "tissu"]
+
+class Dependency:
+    def __init__(self, name):
+        self.name = name
+
+    def width(self):
+        if not self.name or len(self.name) == 0:
+            return 0
+        else:
+            return 12
+
+    def height(self):
+        return 5 * len(self.name)
+
+    def get(self, top, left):
+        if not self.name:
             return ""
-        cost_generator = CostGenerator(top, left)
-        return cost_generator.get(self.cost)
+        position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
+        size = html.size(12, 5 * len(self.name))
+        return html.add_style(position + size, create_text_on_banner(self.name))
 
-class CostGenerator:
-    def __init__(self, top, left):
-        self.top = top
-        self.left = left
+def create_text_on_banner(text):
+    return html.wrap('<div class="background-banner background-full text-dependance">', text)
 
-    def get(self, cost):
-        return self.generate_banner(len(cost)) + self.generate_resources(cost)
-
-    def generate_banner(self, resources_count):
-        height = first_resource_top + resources_count * between_resources + 4
-        position = ["position:absolute", "top:{}px".format(self.top), "left:{}px".format(self.left)]
-        size = html.size(13, height)
-        return html.add_style(position + size, banner())
-
-    def generate_resources(self, cost):
-        output = ""
-        top = first_resource_top + self.top
-        for resource_name in cost:
-            position = ["position:absolute", "top:{}px".format(top), "left:5px"]
-            output += generate_resource(position, resource_name)
-            top += between_resources
-        return output
-
-
-def banner_height(resources):
-    return 3 + resources * 24 + 4
-
-def generate_resource(position, name):
-    size = html.size(24, 24)
-    return html.add_style(position + size, resource(name))
+def generate_banner(top, left, height):
+    position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
+    size = html.size(13, height)
+    return html.add_style(position + size, banner())
 
 def banner():
     return '<div class="background-banner background-full"> </div>'
-
-import re
-def resource(name):
-    if "coin" in name:
-        return coin(re.sub("[^0-9]*", "", name))
-    else:
-        return '<img class="full-screen" src="images/{}.png"/>'.format(name)
-
-def coin(n):
-    c = Coins(n, 24)
-    return c.get()
 

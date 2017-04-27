@@ -13,7 +13,7 @@ def wrap_in_card_container(content):
 
 def get_card_content(config):
     card = Card(210, 329)
-    card.add_zones(generate_cost(config.cost), generate_dependency(config.dependency), generate_effects(config.effect, config.color), generate_name(config.name), PictureZone(config.picture))
+    card.add_zones(generate_cost(config.cost), generate_effects(config.effect, config.color), generate_name(config.name), PictureZone(config.picture))
     content = card.get()
     content += get_players(config.players)
 
@@ -24,20 +24,16 @@ class Card:
         self.width = width
         self.height = height
 
-    def add_zones(self, cost, dependency, effects, name, picture):
-        self.cost = cost
-        self.dependency = dependency
+    def add_zones(self, costs, effects, name, picture):
+        self.costs = costs
         self.effects = effects
         self.name = name
         self.picture = picture
 
     def get(self):
-        left = 10
-        content = self.cost.get(0, left)
-        left += self.cost.width()
-        content += self.dependency.get(0, left)
-        left += self.dependency.width()
-        content += self.effects.get(10, center_zone(left, self.width, self.effects.width()))
+        offsetLeft = 10
+        content = self.costs.get(0, offsetLeft)
+        content += self.effects.get(10, center_zone(offsetLeft + self.costs.width(), self.width, self.effects.width()))
         content += self.name.get(self.height - self.name.height(), 10)
         content += self.picture.get(self.height - self.picture.height(), self.width - self.picture.width())
         return content
