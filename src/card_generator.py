@@ -3,6 +3,7 @@ from name import generate_name
 from dependency import generate_dependency
 from effects import generate_effects
 from html import add_style, wrap, format
+import html
 
 def generate_card(config):
     return format(wrap_in_card_container(get_card_content(config)))
@@ -27,7 +28,8 @@ def get_card_content(config):
 
     nameZone = generate_name(config.name)
     content += nameZone.get(height - nameZone.height(), 10)
-    content += get_picture(config.picture)
+    pictureZone = PictureZone(config.picture)
+    content += pictureZone.get(height - pictureZone.height(), width - pictureZone.width())
     content += get_players(config.players)
 
     return wrap('<div class="carte {}">'.format(config.color), content)
@@ -37,10 +39,20 @@ def center_zone(zone_left, zone_right, width):
     space = zone_right - zone_left
     return (space - width) / 2 + zone_left
 
-def get_picture(file_name):
-    position = ["position:absolute", "bottom:0", "right:0"]
-    size = ["height:77%", "width:82%"]
-    return add_style(position + size, '<img class="full-screen" src="images/{}"/>'.format(file_name))
+class PictureZone:
+    def __init__(self, file):
+        self.file = file
+
+    def width(self):
+        return 172
+
+    def height(self):
+        return 253
+
+    def get(self, top, left):
+        position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
+        size = html.size(self.width(), self.height())
+        return add_style(position + size, '<img class="full-screen" src="images/{}"/>'.format(self.file))
 
 def get_players(n):
     if not n:

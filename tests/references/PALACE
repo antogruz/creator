@@ -36,7 +36,7 @@
                 PALACE
             </div>
         </div>
-        <div style="position:absolute;bottom:0;right:0;height:77%;width:82%">
+        <div style="position:absolute;top:76px;left:38px;width:172px;height:253px">
             <img class="full-screen" src="images/palace.jpg"/>
         </div>
         <div style="position:absolute;bottom:3px;left:50%">
