@@ -91,10 +91,10 @@ class Dependency:
             return ""
         position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
         size = html.size(12, 5 * len(self.name))
-        return html.add_style(position + size, create_text_on_banner(self.name))
+        return html.add_style(position + size, dependency_text(self.name))
 
-def create_text_on_banner(text):
-    return html.wrap('<div class="background-banner background-full text-dependance">', text)
+def dependency_text(text):
+    return html.wrap('<div class="text-dependance">', text)
 
 def generate_banner(top, left, height):
     position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
