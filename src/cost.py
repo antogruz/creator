@@ -54,7 +54,7 @@ class Cost:
         result += generate_banner(top, center_zone(left, left + self.width(), 13), self.height())
         cur_top = top + self.padding_top
         for e in self.elements:
-            result += e.get(cur_top, left)
+            result += e.get(cur_top, center_zone(left, left + self.width(), e.width()))
             cur_top += e.height()
 
         return result

@@ -4,20 +4,20 @@
             <div class="background-banner background-full">
             </div>
         </div>
-        <div style="position:absolute;top:3px;left:5px;width:24px;height:24px">
+        <div style="position:absolute;top:3px;left:5.0px;width:24px;height:24px">
             <img class="full-screen" src="images/pierre.png">
         </div>
-        <div style="position:absolute;top:27px;left:5px;width:24px;height:24px">
+        <div style="position:absolute;top:27px;left:5.0px;width:24px;height:24px">
             <img class="full-screen" src="images/pierre.png">
         </div>
-        <div style="position:absolute;top:51px;left:5px;width:24px;height:24px">
+        <div style="position:absolute;top:51px;left:5.0px;width:24px;height:24px">
             <img class="full-screen" src="images/pierre.png">
         </div>
         <div style="position:absolute;top:0px;left:33.5px;width:13px;height:32px">
             <div class="background-banner background-full">
             </div>
         </div>
-        <div style="position:absolute;top:3px;left:34px;width:12px;height:25px">
+        <div style="position:absolute;top:3px;left:34.0px;width:12px;height:25px">
             <div class="text-dependance">
                 BAINS
             </div>

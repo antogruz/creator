@@ -41,6 +41,14 @@ def caserne():
     card.effect["bouclier"] = 1
     return card
 
+def parlement():
+    card = Card("bleue", "PARLEMENT", "palace.jpg")
+    card.cost.append(["pierre", "pierre", "pierre", "minerai", "argile", "verre"])
+    card.cost.append(["coins2", "PALACE"])
+    card.effect["victory"] = 7
+    card.effect["coin"] = 12
+    return card
+
 def atelier():
     card = Card("vert", "ATELIER", "atelier.jpg")
     card.cost.append(["verre"])
