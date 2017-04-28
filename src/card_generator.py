@@ -1,6 +1,5 @@
 from cost import generate_cost
 from name import generate_name
-from dependency import generate_dependency
 from effects import generate_effects
 from html import add_style, wrap, format
 import html
