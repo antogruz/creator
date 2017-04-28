@@ -77,7 +77,7 @@ def scierie():
 def atelier_de_siege():
     card = Card("rouge", "ATELIER DE SIÈGE", "atelier_de_siege.jpg")
     card.cost.append(["argile", "argile", "argile", "bois"])
-    card.cost.append(["LABORATOIRE", "argile", "argile", "bois"])
+    card.cost.append(["LABORATOIRE"])
     card.effect["bouclier"] = 3
     return card
 

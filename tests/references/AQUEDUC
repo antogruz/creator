@@ -1,24 +1,28 @@
 <div class="marge carte-size">
     <div class="carte bleue">
-        <div style="position:absolute;top:0px;left:10px;width:13px;height:82px">
+        <div style="position:absolute;top:0px;left:10.5px;width:13px;height:79px">
             <div class="background-banner background-full">
             </div>
         </div>
         <div style="position:absolute;top:3px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/pierre.png"/>
+            <img class="full-screen" src="images/pierre.png">
         </div>
-        <div style="position:absolute;top:28px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/pierre.png"/>
+        <div style="position:absolute;top:27px;left:5px;width:24px;height:24px">
+            <img class="full-screen" src="images/pierre.png">
         </div>
-        <div style="position:absolute;top:53px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/pierre.png"/>
+        <div style="position:absolute;top:51px;left:5px;width:24px;height:24px">
+            <img class="full-screen" src="images/pierre.png">
         </div>
-        <div style="position:absolute;top:0px;left:34px;width:12px;height:25px">
+        <div style="position:absolute;top:0px;left:33.5px;width:13px;height:32px">
+            <div class="background-banner background-full">
+            </div>
+        </div>
+        <div style="position:absolute;top:3px;left:34px;width:12px;height:25px">
             <div class="background-banner background-full text-dependance">
                 BAINS
             </div>
         </div>
-        <div style="position:absolute;top:10px;left:95.5px;width:60px;height:55px">
+        <div style="position:absolute;top:10px;left:98.0px;width:60px;height:55px">
             <img class="full-screen" src="images/laurier3.png">
             <div class="center white-text chiffres">
                 5

@@ -34,6 +34,10 @@ class Zone:
             cur_left += cost.width() + self.padding
         return result
 
+def center_zone(zone_left, zone_right, width):
+    space = zone_right - zone_left
+    return (space - width) / 2 + zone_left
+
 class Cost:
     def __init__(self, cost):
         self.padding_top = 3
@@ -50,7 +54,7 @@ class Cost:
 
     def get(self, top, left):
         result = ""
-        result += generate_banner(top, left, self.height())
+        result += generate_banner(top, center_zone(left, left + self.width(), 13), self.height())
         cur_top = top + self.padding_top
         for e in self.elements:
             result += e.get(cur_top, left)

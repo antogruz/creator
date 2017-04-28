@@ -23,17 +23,12 @@ class Zone:
         return 50
 
     def get(self, top, left):
-        return draw_symbols(self.symbols, top, left)
-
-
-def draw_symbols(symbols, top, left):
-    draw = ""
-    for symbol in symbols:
-        position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
-        draw += html.add_style(position + html.size(symbol.width(), symbol.height()), symbol.get())
-        left += padding + symbol.width()
-
-    return draw
+        result = ""
+        cur_left = left
+        for symbol in self.symbols:
+            result += symbol.get(top, cur_left)
+            cur_left += symbol.width() + padding
+        return result
 
 def append_symbols(list, label, value, background_color):
     if label == "victory":

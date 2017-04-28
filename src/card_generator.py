@@ -31,7 +31,7 @@ class Card:
         self.picture = picture
 
     def get(self):
-        offsetLeft = 10
+        offsetLeft = 5
         content = self.costs.get(0, offsetLeft)
         content += self.effects.get(10, center_zone(offsetLeft + self.costs.width(), self.width, self.effects.width()))
         content += self.name.get(self.height - self.name.height(), 10)

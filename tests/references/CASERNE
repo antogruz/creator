@@ -1,11 +1,11 @@
 <div class="marge carte-size">
     <div class="carte rouge">
-        <div style="position:absolute;top:0px;left:10px;width:13px;height:32px">
+        <div style="position:absolute;top:0px;left:10.5px;width:13px;height:31px">
             <div class="background-banner background-full">
             </div>
         </div>
         <div style="position:absolute;top:3px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/minerai.png"/>
+            <img class="full-screen" src="images/minerai.png">
         </div>
         <div style="position:absolute;top:10px;left:96.5px;width:46px;height:46px">
             <img class="full-screen" src="images/bouclier.png">

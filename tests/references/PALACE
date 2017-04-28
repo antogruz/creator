@@ -1,29 +1,29 @@
 <div class="marge carte-size">
     <div class="carte bleue">
-        <div style="position:absolute;top:0px;left:10px;width:13px;height:182px">
+        <div style="position:absolute;top:0px;left:10.5px;width:13px;height:175px">
             <div class="background-banner background-full">
             </div>
         </div>
         <div style="position:absolute;top:3px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/pierre.png"/>
+            <img class="full-screen" src="images/pierre.png">
         </div>
-        <div style="position:absolute;top:28px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/minerai.png"/>
+        <div style="position:absolute;top:27px;left:5px;width:24px;height:24px">
+            <img class="full-screen" src="images/minerai.png">
         </div>
-        <div style="position:absolute;top:53px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/argile.png"/>
+        <div style="position:absolute;top:51px;left:5px;width:24px;height:24px">
+            <img class="full-screen" src="images/argile.png">
         </div>
-        <div style="position:absolute;top:78px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/bois.png"/>
+        <div style="position:absolute;top:75px;left:5px;width:24px;height:24px">
+            <img class="full-screen" src="images/bois.png">
         </div>
-        <div style="position:absolute;top:103px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/verre.png"/>
+        <div style="position:absolute;top:99px;left:5px;width:24px;height:24px">
+            <img class="full-screen" src="images/verre.png">
         </div>
-        <div style="position:absolute;top:128px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/tissu.png"/>
+        <div style="position:absolute;top:123px;left:5px;width:24px;height:24px">
+            <img class="full-screen" src="images/tissu.png">
         </div>
-        <div style="position:absolute;top:153px;left:5px;width:24px;height:24px">
-            <img class="full-screen" src="images/papyrus.png"/>
+        <div style="position:absolute;top:147px;left:5px;width:24px;height:24px">
+            <img class="full-screen" src="images/papyrus.png">
         </div>
         <div style="position:absolute;top:10px;left:89.5px;width:60px;height:55px">
             <img class="full-screen" src="images/laurier3.png">
