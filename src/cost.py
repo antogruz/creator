@@ -2,9 +2,6 @@ import html
 from objects import Coins, Resource
 import re
 
-first_resource_top = 3
-between_resources = 25
-
 def generate_cost(costs):
     zone = Zone()
     for cost in costs:
