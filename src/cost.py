@@ -2,16 +2,12 @@ import html
 from objects import Coins, Resource
 import re
 
-def generate_cost(costs):
-    zone = Zone()
-    for cost in costs:
-        zone.append(Cost(cost))
-
-    return zone
+def create_costs_area(cost_configs):
+    return Zone([Cost(config) for config in cost_configs])
 
 class Zone:
-    def __init__(self):
-        self.costs = []
+    def __init__(self, costs):
+        self.costs = costs
         self.padding = 5
 
     def append(self, cost):

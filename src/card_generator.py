@@ -1,4 +1,4 @@
-from cost import generate_cost
+from cost import create_costs_area
 from name import generate_name
 from effects import generate_effects
 from html import add_style, wrap, format
@@ -12,7 +12,7 @@ def wrap_in_card_container(content):
 
 def get_card_content(config):
     card = Card(210, 329)
-    card.add_zones(generate_cost(config.cost), generate_effects(config.effect, config.color), generate_name(config.name), PictureZone(config.picture))
+    card.add_zones(create_costs_area(config.costs), generate_effects(config.effect, config.color), generate_name(config.name), PictureZone(config.picture))
     content = card.get()
     content += get_players(config.players)
 
