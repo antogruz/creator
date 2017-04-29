@@ -12,3 +12,7 @@ class Tester:
             getattr(self, test)()
 
 
+def assert_equals(expected, actual):
+    if expected != actual:
+        print("Expected", expected, "got", actual)
+        raise Exception("Error in test")

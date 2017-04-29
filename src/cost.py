@@ -3,9 +3,9 @@ from objects import Coins, Resource
 import re
 
 def create_costs_area(cost_configs):
-    return Zone([Cost(config) for config in cost_configs])
+    return Area([Cost(config) for config in cost_configs])
 
-class Zone:
+class Area:
     def __init__(self, costs):
         self.costs = costs
         self.padding = 5
