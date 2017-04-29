@@ -7,7 +7,8 @@ class Line:
         result = ""
         current_left = left
         for e in self.elements:
-            result += e.get(top, current_left)
+            top_position = center(top, top + self.height(), e.height())
+            result += e.get(top_position, current_left)
             current_left += self.padding + e.width()
         return result
 
@@ -16,6 +17,10 @@ class Line:
 
     def width(self):
         return sum([e.width() for e in self.elements]) + sum([self.padding for i in range(1, len(self.elements))])
+
+def center(begin, end, size):
+    empty_space = end - begin - size
+    return empty_space / 2 + begin
 
 class Column:
     def __init__(self, elements, padding):
