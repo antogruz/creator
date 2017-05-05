@@ -1,6 +1,6 @@
 <div class="marge carte-size">
     <div class="carte marron">
-        <div style="position:absolute;top:10px;left:80.0px;width:50px;height:50px">
+        <div style="position:absolute;top:10.0px;left:82.5px;width:50px;height:50px">
             <img class="full-screen" src="images/pierre.png">
         </div>
         <div style="position:absolute;top:263px;left:10px;width:20px;height:66px">
