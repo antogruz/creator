@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -e
 
-PYTHONPATH=$PYTHONPATH:src/ python3 src/create_new_refs.py
+PYTHONPATH=$PYTHONPATH:src/ python3 scripts/create_new_refs.py
