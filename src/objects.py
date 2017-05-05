@@ -75,3 +75,19 @@ class Resource(Quad):
 
     def get(self):
         return '<img class="full-screen" src="images/{}.png">'.format(self.resource)
+
+
+class Picture():
+    def __init__(self, file, w, h):
+        self.file = file
+        self.w = w
+        self.h = h
+
+    def width(self):
+        return self.w
+
+    def height(self):
+        return self.h
+
+    def get(self):
+        return '<img class="full-screen" src="images/{}"/>'.format(self.file)

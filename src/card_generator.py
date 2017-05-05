@@ -4,6 +4,7 @@ from effects import generate_effects
 from html import add_style, wrap, format
 import html
 from disposition import center
+from objects import BasicObject, Picture
 
 def generate_card(config):
     return format(wrap_in_card_container(get_card_content(config)))
@@ -13,7 +14,7 @@ def wrap_in_card_container(content):
 
 def get_card_content(config):
     card = Card(210, 329)
-    card.add_zones(create_costs_area(config.costs), generate_effects(config.effect, config.color), generate_name(config.name), PictureZone(config.picture))
+    card.add_zones(create_costs_area(config.costs), generate_effects(config.effect, config.color), generate_name(config.name), BasicObject(Picture(config.picture, 172, 253)))
     content = card.get()
     content += get_players(config.players)
 
@@ -37,22 +38,6 @@ class Card:
         content += self.name.get(self.height - self.name.height(), 10)
         content += self.picture.get(self.height - self.picture.height(), self.width - self.picture.width())
         return content
-
-
-class PictureZone:
-    def __init__(self, file):
-        self.file = file
-
-    def width(self):
-        return 172
-
-    def height(self):
-        return 253
-
-    def get(self, top, left):
-        position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
-        size = html.size(self.width(), self.height())
-        return add_style(position + size, '<img class="full-screen" src="images/{}"/>'.format(self.file))
 
 def get_players(n):
     if not n:
