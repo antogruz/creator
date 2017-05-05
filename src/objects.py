@@ -32,7 +32,7 @@ class Coins(Quad):
         self.coins = coins
 
     def get(self):
-        return '<img class="full-screen" src="images/coin.png">' + html.wrap('<div style="font-size:{}em" class="center black-text chiffres">'.format(self.getTextSize()), str(self.coins))
+        return image("coin.png") + html.wrap('<div style="font-size:{}em" class="center black-text chiffres">'.format(self.getTextSize()), str(self.coins))
 
     def getTextSize(self):
         return self.size * 2.2 / 50
@@ -52,21 +52,21 @@ class Victory:
         return 55
 
     def get(self):
-        return '<img class="full-screen" src="images/laurier3.png">' + html.wrap('<div class="center {} chiffres">'.format(self.text_color), str(self.points))
+        return image("laurier3.png") + html.wrap('<div class="center {} chiffres">'.format(self.text_color), str(self.points))
 
 class Bouclier(Quad):
     def __init__(self, size=46):
         Quad.__init__(self, size)
 
     def get(self):
-        return '<img class="full-screen" src="images/bouclier.png">'
+        return image("bouclier.png")
 
 class Roue(Quad):
     def __init__(self, size=50):
         Quad.__init__(self, size)
 
     def get(self):
-        return '<img class="full-screen" src="images/roue.png">'
+        return image("roue.png")
 
 class Resource(Quad):
     def __init__(self, resource, size=50):
@@ -74,7 +74,7 @@ class Resource(Quad):
         self.resource = resource
 
     def get(self):
-        return '<img class="full-screen" src="images/{}.png">'.format(self.resource)
+        return image(self.resource + ".png")
 
 
 class Picture():
@@ -90,4 +90,7 @@ class Picture():
         return self.h
 
     def get(self):
-        return '<img class="full-screen" src="images/{}"/>'.format(self.file)
+        return image(self.file)
+
+def image(file):
+    return '<img class="full-screen" src="images/{}"/>'.format(file)

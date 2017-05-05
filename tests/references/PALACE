@@ -5,28 +5,28 @@
             </div>
         </div>
         <div style="position:absolute;top:3px;left:5.0px;width:24px;height:24px">
-            <img class="full-screen" src="images/pierre.png">
+            <img class="full-screen" src="images/pierre.png"/>
         </div>
         <div style="position:absolute;top:27px;left:5.0px;width:24px;height:24px">
-            <img class="full-screen" src="images/minerai.png">
+            <img class="full-screen" src="images/minerai.png"/>
         </div>
         <div style="position:absolute;top:51px;left:5.0px;width:24px;height:24px">
-            <img class="full-screen" src="images/argile.png">
+            <img class="full-screen" src="images/argile.png"/>
         </div>
         <div style="position:absolute;top:75px;left:5.0px;width:24px;height:24px">
-            <img class="full-screen" src="images/bois.png">
+            <img class="full-screen" src="images/bois.png"/>
         </div>
         <div style="position:absolute;top:99px;left:5.0px;width:24px;height:24px">
-            <img class="full-screen" src="images/verre.png">
+            <img class="full-screen" src="images/verre.png"/>
         </div>
         <div style="position:absolute;top:123px;left:5.0px;width:24px;height:24px">
-            <img class="full-screen" src="images/tissu.png">
+            <img class="full-screen" src="images/tissu.png"/>
         </div>
         <div style="position:absolute;top:147px;left:5.0px;width:24px;height:24px">
-            <img class="full-screen" src="images/papyrus.png">
+            <img class="full-screen" src="images/papyrus.png"/>
         </div>
         <div style="position:absolute;top:10.0px;left:89.5px;width:60px;height:55px">
-            <img class="full-screen" src="images/laurier3.png">
+            <img class="full-screen" src="images/laurier3.png"/>
             <div class="center white-text chiffres">
                 8
             </div>
