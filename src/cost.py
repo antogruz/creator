@@ -1,31 +1,10 @@
 import html
 from objects import Coins, Resource
 import re
+from disposition import create_line
 
 def create_costs_area(cost_configs):
-    return Area([Cost(config) for config in cost_configs])
-
-class Area:
-    def __init__(self, costs):
-        self.costs = costs
-        self.padding = 5
-
-    def append(self, cost):
-        self.costs.append(cost)
-
-    def width(self):
-        return sum([c.width() + self.padding for c in self.costs])
-
-    def height(self):
-        return max([c.height() for c in self.costs])
-
-    def get(self, top, left):
-        result = ""
-        cur_left = left
-        for cost in self.costs:
-            result += cost.get(top, cur_left)
-            cur_left += cost.width() + self.padding
-        return result
+    return create_line([Cost(config) for config in cost_configs], padding=5, centered=False)
 
 def center_zone(zone_left, zone_right, width):
     space = zone_right - zone_left
