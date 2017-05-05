@@ -3,6 +3,7 @@ from name import generate_name
 from effects import generate_effects
 from html import add_style, wrap, format
 import html
+from disposition import center
 
 def generate_card(config):
     return format(wrap_in_card_container(get_card_content(config)))
@@ -32,15 +33,11 @@ class Card:
     def get(self):
         offsetLeft = 5
         content = self.costs.get(0, offsetLeft)
-        content += self.effects.get(10, center_zone(offsetLeft + self.costs.width(), self.width, self.effects.width()))
+        content += self.effects.get(10, center(offsetLeft + self.costs.width(), self.width, self.effects.width()))
         content += self.name.get(self.height - self.name.height(), 10)
         content += self.picture.get(self.height - self.picture.height(), self.width - self.picture.width())
         return content
 
-
-def center_zone(zone_left, zone_right, width):
-    space = zone_right - zone_left
-    return (space - width) / 2 + zone_left
 
 class PictureZone:
     def __init__(self, file):
