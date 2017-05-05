@@ -1,5 +1,5 @@
 import html
-from objects import Coins, Resource
+from objects import BasicObject, Coins, Resource
 import re
 from disposition import create_line
 
@@ -34,9 +34,9 @@ class Cost:
 
 def create_element(name):
     if is_resource(name):
-        return Resource(name, 24)
+        return BasicObject(Resource(name, 24))
     elif "coin" in name:
-        return Coins(re.sub("[^0-9]*", "", name), 24)
+        return BasicObject(Coins(re.sub("[^0-9]*", "", name), 24))
     else:
         return Dependency(name)
 
