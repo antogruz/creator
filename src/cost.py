@@ -7,10 +7,10 @@ def create_costs_area(cost_configs):
     return create_line([Cost(config) for config in cost_configs], padding=5, centered=False)
 
 class Cost:
-    def __init__(self, cost):
+    def __init__(self, config):
         self.padding_top = 3
         self.padding_bot = 4
-        self.elements = [create_element(c) for c in cost]
+        self.elements = [create_element(c) for c in config]
 
     def width(self):
         return max([e.width() for e in self.elements])
