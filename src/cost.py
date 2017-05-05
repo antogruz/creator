@@ -44,17 +44,12 @@ class Dependency:
         self.name = name
 
     def width(self):
-        if not self.name or len(self.name) == 0:
-            return 0
-        else:
-            return 12
+        return 12
 
     def height(self):
         return 5 * len(self.name)
 
     def get(self, top, left):
-        if not self.name:
-            return ""
         position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
         size = html.size(12, 5 * len(self.name))
         return html.add_style(position + size, dependency_text(self.name))
