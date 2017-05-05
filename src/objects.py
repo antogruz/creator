@@ -92,5 +92,18 @@ class Picture():
     def get(self):
         return image(self.file)
 
+class Dependency:
+    def __init__(self, name):
+        self.name = name
+
+    def width(self):
+        return 12
+
+    def height(self):
+        return 5 * len(self.name)
+
+    def get(self):
+        return html.wrap('<div class="text-dependance">', self.name)
+
 def image(file):
     return '<img class="full-screen" src="images/{}"/>'.format(file)

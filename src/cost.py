@@ -1,5 +1,5 @@
 import html
-from objects import BasicObject, Coins, Resource
+from objects import BasicObject, Coins, Resource, Dependency
 import re
 from disposition import create_line, center
 
@@ -34,28 +34,10 @@ def create_element(name):
     elif "coin" in name:
         return BasicObject(Coins(re.sub("[^0-9]*", "", name), 24))
     else:
-        return Dependency(name)
+        return BasicObject(Dependency(name))
 
 def is_resource(name):
     return name in ["pierre", "bois", "minerai", "argile", "verre", "papyrus", "tissu"]
-
-class Dependency:
-    def __init__(self, name):
-        self.name = name
-
-    def width(self):
-        return 12
-
-    def height(self):
-        return 5 * len(self.name)
-
-    def get(self, top, left):
-        position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
-        size = html.size(12, 5 * len(self.name))
-        return html.add_style(position + size, dependency_text(self.name))
-
-def dependency_text(text):
-    return html.wrap('<div class="text-dependance">', text)
 
 def generate_banner(top, left, height):
     position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
