@@ -105,5 +105,19 @@ class Dependency:
     def get(self):
         return html.wrap('<div class="text-dependance">', self.name)
 
+class Banner:
+    def __init__(self, height):
+        self.h = height
+
+    def width(self):
+        return 13
+
+    def height(self):
+        return self.h
+
+    def get(self):
+        return '<div class="background-banner background-full"> </div>'
+
+
 def image(file):
     return '<img class="full-screen" src="images/{}"/>'.format(file)

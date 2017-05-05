@@ -1,5 +1,5 @@
 import html
-from objects import BasicObject, Coins, Resource, Dependency
+from objects import BasicObject, Coins, Resource, Dependency, Banner
 import re
 from disposition import create_line, create_column, center
 
@@ -22,7 +22,8 @@ class Cost:
         return self.padding_top + self.column.height() + self.padding_bot
 
     def get(self, top, left):
-        banner = generate_banner(top, center(left, left + self.width(), 13), self.height())
+        banner_object = BasicObject(Banner(self.height()))
+        banner = banner_object.get(top, center(left, left + self.width(), 13))
         costs = self.column.get(top + self.padding_top, left)
         return banner + costs
 
@@ -36,12 +37,4 @@ def create_element(name):
 
 def is_resource(name):
     return name in ["pierre", "bois", "minerai", "argile", "verre", "papyrus", "tissu"]
-
-def generate_banner(top, left, height):
-    position = ["position:absolute", "top:{}px".format(top), "left:{}px".format(left)]
-    size = html.size(13, height)
-    return html.add_style(position + size, banner())
-
-def banner():
-    return '<div class="background-banner background-full"> </div>'
 
