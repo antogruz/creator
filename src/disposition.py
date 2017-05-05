@@ -22,6 +22,12 @@ class Horizontal():
         else:
             return element.height()
 
+    def width_axe(self):
+        return axe_x
+
+    def height_axe(self):
+        return axe_y
+
 class Vertical():
     def get_element(self, element, x, y):
         return element.get(x, y)
@@ -34,6 +40,12 @@ class Vertical():
             return element.height()
         else:
             return element.width()
+
+    def width_axe(self):
+        return axe_y
+
+    def height_axe(self):
+        return axe_x
 
 class Line:
     def __init__(self, direction, elements, padding, centered):
@@ -55,10 +67,10 @@ class Line:
         return result
 
     def width(self):
-        return self.size(axe_x)
+        return self.size(self.direction.width_axe())
 
     def height(self):
-        return self.size(axe_y)
+        return self.size(self.direction.height_axe())
 
     def size(self, axe):
         if axe == axe_x:

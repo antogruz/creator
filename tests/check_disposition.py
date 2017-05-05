@@ -65,4 +65,9 @@ class ColumnTester(Tester):
         col = create_column([Element(3, 4), Element(1, 1)], 5)
         assert_equals("1-0" + "10-1", col.get(1, 0))
 
+    def test_column_dimensions(self):
+        col = create_column([Element(1, 2), Element(3, 1)], 99)
+        assert_equals(2 + 1 + 99, col.height())
+        assert_equals(3, col.width())
+
 main()
