@@ -1,32 +1,30 @@
 import html
 from objects import BasicObject, Coins, Resource, Dependency
 import re
-from disposition import create_line, center
+from disposition import create_line, create_column, center
 
 def create_costs_area(cost_configs):
-    return create_line([Cost(config) for config in cost_configs], padding=5, centered=False)
+    return create_line([create_cost(config) for config in cost_configs], padding=5, centered=False)
+
+def create_cost(config):
+    return Cost([create_element(c) for c in config])
 
 class Cost:
-    def __init__(self, config):
+    def __init__(self, elements):
         self.padding_top = 3
         self.padding_bot = 4
-        self.elements = [create_element(c) for c in config]
+        self.column = create_column(elements, padding=0)
 
     def width(self):
-        return max([e.width() for e in self.elements])
+        return self.column.width()
 
     def height(self):
-        return self.padding_top + sum([e.height() for e in self.elements]) + self.padding_bot
+        return self.padding_top + self.column.height() + self.padding_bot
 
     def get(self, top, left):
-        result = ""
-        result += generate_banner(top, center(left, left + self.width(), 13), self.height())
-        cur_top = top + self.padding_top
-        for e in self.elements:
-            result += e.get(cur_top, center(left, left + self.width(), e.width()))
-            cur_top += e.height()
-
-        return result
+        banner = generate_banner(top, center(left, left + self.width(), 13), self.height())
+        costs = self.column.get(top + self.padding_top, left)
+        return banner + costs
 
 def create_element(name):
     if is_resource(name):
