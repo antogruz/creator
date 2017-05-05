@@ -14,9 +14,7 @@ class Cost:
     def __init__(self, cost):
         self.padding_top = 3
         self.padding_bot = 4
-        self.elements = []
-        for element in cost:
-            self.elements.append(create_element(element))
+        self.elements = [create_element(c) for c in cost]
 
     def width(self):
         return max([e.width() for e in self.elements])
