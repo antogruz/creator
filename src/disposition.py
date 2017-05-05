@@ -3,11 +3,11 @@ from enum import Enum
 axe_x = 0
 axe_y = 1
 
-def create_line(elements, padding):
-    return Line(Horizontal(), elements, padding)
+def create_line(elements, padding, centered = True):
+    return Line(Horizontal(), elements, padding, centered)
 
-def create_column(elements, padding):
-    return Line(Vertical(), elements, padding)
+def create_column(elements, padding, centered = True):
+    return Line(Vertical(), elements, padding, centered)
 
 class Horizontal():
     def get_element(self, element, x, y):
@@ -36,16 +36,20 @@ class Vertical():
             return element.width()
 
 class Line:
-    def __init__(self, direction, elements, padding):
+    def __init__(self, direction, elements, padding, centered):
         self.elements = elements
         self.padding = padding
         self.direction = direction
+        self.centered = centered
 
     def get(self, top, left):
         result = ""
         (x, y) = self.direction.get_xy(top, left)
         for e in self.elements:
-            e_y = center(y , y + self.size(axe_y), self.direction.get_size(e, axe_y))
+            if self.centered:
+                e_y = center(y , y + self.size(axe_y), self.direction.get_size(e, axe_y))
+            else:
+                e_y = y
             result += self.direction.get_element(e, x, e_y)
             x += self.padding + self.direction.get_size(e, axe_x)
         return result

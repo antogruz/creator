@@ -42,6 +42,11 @@ class LineTester(Tester):
         line = create_line([Element(0, 1), Element(0, 3)], 0)
         assert_equals("1-0" + "0-0", line.get(0, 0))
 
+    def test_not_centered_line(self):
+        line = create_line([Element(0, 1), Element(0, 3)], 0, centered=False)
+        assert_equals("0-0" + "0-0", line.get(0, 0))
+
+
 
 class ColumnTester(Tester):
     def test_empty_column(self):
