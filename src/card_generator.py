@@ -14,7 +14,7 @@ def wrap_in_card_container(content):
 
 def get_card_content(config):
     card = Card(210, 329)
-    card.add_zones(create_costs_area(config.costs), generate_effects(config.effect, config.color), generate_name(config.name), BasicObject(Picture(config.picture, 172, 253)))
+    card.add_zones(create_costs_area(config.costs), generate_effects(config.effects, config.color), generate_name(config.name), BasicObject(Picture(config.picture, 172, 253)))
     content = card.get()
     content += get_players(config.players)
 
