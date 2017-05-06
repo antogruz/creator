@@ -18,6 +18,7 @@ def get_all_cards():
     cards.append(sappho())
     cards.append(scierie())
     cards.append(atelier_de_siege())
+    cards.append(parlement())
 
     return cards
 
