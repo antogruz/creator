@@ -118,6 +118,18 @@ class Banner:
     def get(self):
         return '<div class="background-banner background-full"> </div>'
 
+class NameOnBackground:
+    def __init__(self, name):
+        self.name = name
+
+    def width(self):
+        return 20
+
+    def height(self):
+        return 11 * len(self.name)
+
+    def get(self):
+        return html.wrap('<div class="background-name background-full text-name">', self.name)
 
 def image(file):
     return '<img class="full-screen" src="images/{}"/>'.format(file)
