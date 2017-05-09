@@ -54,22 +54,6 @@ body {
 	background-image : url("../images/white_background.jpg");
 }
 
-.couts-area {
-    display: flex;
-    height: 50%;
-    width: 40%;
-    margin-left: 2%;
-}
-
-.cout {
-    width: 100%;
-    margin-left: 3%;
-}
-
-.padding {
-    height: 0.8%;
-}
-
 .background-banner {
     background-image : url('../images/fond-dependance.png');
     background-repeat : no-repeat;
@@ -82,21 +66,6 @@ body {
     height: 100%;
 }
 
-.ressource {
-    position : relative;
-    width : 95%;
-    height: 14.5%;
-    margin-top: 7.5%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.dependance {
-    position : relative;
-    background : url('../images/fond-dependance.png');
-    background-size: 15px 15px;
-}
-
 .text-dependance {
     font-size : 0.5em;
     writing-mode: sideways-lr;
@@ -104,33 +73,6 @@ body {
     padding : 2px 2px 5px 1px;
     margin-bottom : 5px;
     text-align: center;
-}
-
-.effets {
-    margin-top : 3%;
-    margin-right: 10%;
-    width: 90%;
-    height: 18%;
-    display: flex;
-}
-
-.effet {
-    position: relative;
-    width: 47%;
-    height: 90%;
-}
-
-.position-center {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-
-.coin-picture {
-    width: 81%;
-    height: 100%;
 }
 
 .center {
@@ -157,7 +99,6 @@ body {
     font-weight: bold;
 }
 
-
 .background-name {
     background: url('../images/fond-name.png') no-repeat center/150% 100%;
 }
@@ -166,16 +107,6 @@ body {
     writing-mode: sideways-lr;
     text-orientation: sideways;
     font-size : 0.95em;
-}
-
-.name {
-    position : absolute;
-    /*noinspection CssInvalidPropertyValue*/
-    bottom : 0;
-    left : 4%;
-    margin-top : -20px;
-    padding-top : 20px;
-    padding-bottom : 2px;
 }
 
 .text-nombreJoueurs {
@@ -197,13 +128,5 @@ body {
 .full-screen {
     height : 100%;
     width : 100%;
-}
-
-.image {
-    position : absolute;
-    height : 77%;
-    width : 82%;
-    bottom : 0;
-    right: 0;
 }
 
