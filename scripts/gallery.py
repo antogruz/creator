@@ -10,10 +10,10 @@ class Gallery:
     def display(self):
         html = ""
         for i, card in zip(range(len(self.cards)), self.cards):
-            if i % self.cards_per_line == 0:
+            if self.first_in_line(i):
                 html += self.open_line()
             html += card
-            if i % self.cards_per_line == self.cards_per_line - 1:
+            if self.last_in_line(i):
                 html += self.close_line()
         self.close_line()
         return html
@@ -28,3 +28,10 @@ class Gallery:
             return '</div>'
 
         return ""
+
+    def first_in_line(self, imageRank):
+        return imageRank % self.cards_per_line == 0
+
+    def last_in_line(self, imageRank):
+        return imageRank % self.cards_per_line == self.cards_per_line - 1
+
