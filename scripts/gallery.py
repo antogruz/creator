@@ -1,7 +1,8 @@
 class Gallery:
-    def __init__(self):
+    def __init__(self, cards_per_line = 4):
         self.cards = []
         self.opened_lines = 0
+        self.cards_per_line = cards_per_line
 
     def add_card(self, card):
         self.cards.append(card)
@@ -9,10 +10,10 @@ class Gallery:
     def display(self):
         html = ""
         for i, card in zip(range(len(self.cards)), self.cards):
-            if i % 4 == 0:
+            if i % self.cards_per_line == 0:
                 html += self.open_line()
             html += card
-            if i % 4 == 3:
+            if i % self.cards_per_line == self.cards_per_line - 1:
                 html += self.close_line()
         self.close_line()
         return html
