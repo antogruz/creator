@@ -2,3 +2,4 @@
 view/generated_view.html
 *.pyc
 */__pycache__
+tags
