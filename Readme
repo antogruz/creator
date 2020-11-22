@@ -5,8 +5,32 @@ La première partie se propose de créer un générateur de cartes de 7Wonders.
 Voilà un exemple d'une commande à lancer pour générer en permanence le code html qui affiche la galerie :
 while true ; do python3 display.py view/taverne.html references/taverne.html view/aqueduc.html ; done &
 
-1) Obtenir les images des cartes de 7Wonders, prêtes à l'emploi
+Les différents points d'entrée
+
+** Obtenir les images des cartes de 7Wonders, prêtes à l'emploi
 
 sudo apt install imagemagick
 ./get_all_cards_pictures
+
+
+** Lancer tous les tests unitaires
+
+./check
+
+
+** Afficher le visuel des cartes que l'on peut générer
+
+./visual_check
+
+
+** Vérifier l'effet de nos modifications du code sur les cartes
+
+Avant de travailler, on lance
+ $ ./generate_refs
+
+Puis à tout moment
+ $ ./visual_check --diff
+
+Pour montrer toutes les images dont le code html a changé, en version avant/après
+Lorsque le résultat est satisfaisant, on peut générer de nouvelles références et les commiter
 
