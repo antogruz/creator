@@ -13,13 +13,13 @@ def get_all_cards():
     cards.append(aqueduc())
     cards.append(taverne())
     cards.append(caserne())
+    cards.append(parlement())
+    cards.append(lou())
     cards.append(palace())
     cards.append(cavite())
     cards.append(sappho())
     cards.append(scierie())
     cards.append(atelier_de_siege())
-    cards.append(parlement())
-    cards.append(lou())
 
     return cards
 
