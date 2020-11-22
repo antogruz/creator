@@ -19,6 +19,7 @@ def get_all_cards():
     cards.append(scierie())
     cards.append(atelier_de_siege())
     cards.append(parlement())
+    cards.append(lou())
 
     return cards
 
@@ -92,5 +93,11 @@ def atelier_de_siege():
     card.effects.append("bouclier")
     card.effects.append("bouclier")
     card.effects.append("bouclier")
+    return card
+
+def lou():
+    card = Card("blanche", "LOU", "louzoom.jpg")
+    card.costs.append(["coin1"])
+    card.effects.append("victory3")
     return card
 
