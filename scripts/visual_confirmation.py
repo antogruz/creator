@@ -6,19 +6,26 @@ import argparse
 import os
 
 def main():
-    html = generate_gallery(choose_cards())
+    args = parse_args()
+    html = generate_gallery(choose_cards(args), gallery_width(args))
     write_in_file("view/generated_view.html", html)
 
-def choose_cards():
-    if is_diff_mode():
-        return get_cards_that_differs()
-    else:
-        return [generate_card(card) for card in get_all_cards()]
-
-def is_diff_mode():
+def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--diff", action="store_true")
-    return parser.parse_args().diff
+    parser.add_argument("--print", action="store_true")
+    return parser.parse_args()
+
+def gallery_width(args):
+    if args.print:
+        return 2
+    return 4
+
+def choose_cards(args):
+    if args.diff:
+        return get_cards_that_differs()
+
+    return [generate_card(card) for card in get_all_cards()]
 
 def get_cards_that_differs():
     cards = []
@@ -32,9 +39,9 @@ def get_cards_that_differs():
                 cards.append(generated)
     return cards
 
-def generate_gallery(cards):
+def generate_gallery(cards, width):
     gallery_html = read_content("view/gallery.html")
-    gallery = Gallery()
+    gallery = Gallery(width)
     for card in cards:
         gallery.add_card(card)
 

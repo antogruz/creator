@@ -1,5 +1,5 @@
 class Gallery:
-    def __init__(self, cards_per_line = 4):
+    def __init__(self, cards_per_line):
         self.cards = []
         self.opened_lines = 0
         self.cards_per_line = cards_per_line
